@@ -1,4 +1,9 @@
-<div class="mat-app-background">
+<div class="mat-app-background darkMode" *ngIf="getDarkmode(); else whitemode">
   <app-header></app-header>
   <router-outlet></router-outlet>
 </div>
+
+<ng-template class="mat-app-background" #whitemode>
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+</ng-template>

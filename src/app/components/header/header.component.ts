@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { FormControl } from "@angular/forms";
+import {OverlayContainer} from "@angular/cdk/overlay";
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,12 @@ import { FormControl } from "@angular/forms";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  constructor(private overlay: OverlayContainer) { }
+
   toggleControl = new FormControl(false);
 
   theme: string | null = localStorage.getItem('theme');
-
-  constructor() { }
 
   @HostBinding('class') className = '';
 
@@ -24,9 +26,12 @@ export class HeaderComponent implements OnInit {
 
       if (darkMode) {
         localStorage.setItem('theme', 'darkmode');
+        this.overlay.getContainerElement().classList.add(darkClassName);
         return;
       }
       localStorage.setItem('theme', 'lightmode');
+
+      this.overlay.getContainerElement().classList.remove(darkClassName);
     });
   }
 

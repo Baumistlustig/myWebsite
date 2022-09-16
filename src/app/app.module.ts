@@ -12,9 +12,10 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FlexModule } from "@angular/flex-layout";
 import { MatMenuModule } from "@angular/material/menu";
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatSlideToggleModule, ReactiveFormsModule, FlexModule, MatMenuModule],
   providers: [],
   bootstrap: [AppComponent],

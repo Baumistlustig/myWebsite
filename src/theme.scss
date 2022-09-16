@@ -1,4 +1,5 @@
 @use '../node_modules/@angular/material/index' as mat;
+
 @include mat.core();
 
 $primary: mat.define-palette(mat.$indigo-palette);
@@ -13,18 +14,16 @@ $light-theme: mat.define-light-theme((
   )
 ));
 
-@include mat.all-component-themes($light-theme);
-
-$angular-dark-theme: mat.define-dark-theme(
-    (
-      color: (
-        primary: $primary,
-        accent: $accent,
-        warn: $warn,
-      ),
-    )
-);
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  ),
+));
 
 .darkMode {
-  @include mat.all-component-colors($angular-dark-theme);
+  @include mat.all-component-colors($dark-theme);
 }
+
+@include mat.all-component-themes($light-theme);

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Johannes Hölllwerth';
+
+  getDarkmode(): boolean {
+    return localStorage.getItem('theme') === 'darkmode';
+  }
 }
