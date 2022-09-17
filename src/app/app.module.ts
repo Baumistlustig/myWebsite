@@ -13,9 +13,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { FlexModule } from "@angular/flex-layout";
 import { MatMenuModule } from "@angular/material/menu";
 import { HomeComponent } from './components/home/home.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, ProjectsComponent],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatSlideToggleModule, ReactiveFormsModule, FlexModule, MatMenuModule],
   providers: [],
   bootstrap: [AppComponent],
