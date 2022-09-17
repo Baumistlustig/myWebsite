@@ -14,10 +14,28 @@ import { FlexModule } from "@angular/flex-layout";
 import { MatMenuModule } from "@angular/material/menu";
 import { HomeComponent } from './components/home/home.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, ProjectsComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatSlideToggleModule, ReactiveFormsModule, FlexModule, MatMenuModule],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    ProjectsComponent,
+    ScrollToTopComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    FlexModule,
+    MatMenuModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
