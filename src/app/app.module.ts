@@ -9,12 +9,15 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-import { ReactiveFormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FlexModule } from "@angular/flex-layout";
 import { MatMenuModule } from "@angular/material/menu";
 import { HomeComponent } from './components/home/home.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import { ImprintComponent } from './components/imprint/imprint.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
     HeaderComponent,
     HomeComponent,
     ProjectsComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
+    ImprintComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,9 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
     ReactiveFormsModule,
     FlexModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

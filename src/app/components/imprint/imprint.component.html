@@ -1,0 +1,122 @@
+<div class="imprint">
+  <mat-form-field appearance="fill">
+    <mat-label>Language</mat-label>
+    <mat-select [(ngModel)]="selectedLanguage" name="food">
+      <mat-option *ngFor="let language of languages" [value]="language">
+        {{language}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <section>
+    <section *ngIf="selectedLanguage === 'Deutsch'; else english" class="content">
+      <h1>Impressum</h1>
+
+      <p>
+        <b>
+          Informationen und Offenlegung gemäß &sect;5 (1) ECG, &sect; 25 MedienG,
+          &sect;63 GewO und &sect; 14 UGB</b
+        >
+      </p>
+
+      <p><b>Webseitenbetreiber:</b> Johannes Höllwerth</p>
+
+      <p><b>Anschrift:</b> Thor, 166, 5760 Saalfelden</p>
+
+      <p>
+        <b>Kontaktdaten:</b> <br />
+        Telefon: Auf Anfrage <br />
+        Email: johannes.hoellwerth@protonmail.com <br />
+      </p>
+
+      <p><b>Anwendbare Rechtsvorschrift:</b> www.ris.bka.gv.at</p>
+
+      <p>
+        <b>Online Streitbeilegung:</b> <br />
+        Verbraucher, welche in Österreich oder in einem sonstigen Vertragsstaat der
+        ODR-VO niedergelassen sind, haben die Möglichkeit Probleme<br />
+        bezüglich dem entgeltlichen Kauf von Waren oder Dienstleistungen im Rahmen
+        einer Online-Streitbeilegung (nach OS, AStG) zu lösen. <br />
+        Die Europäische Kommission stellt eine Plattform hierfür bereit:
+        https://ec.europa.eu/consumers/odr
+      </p>
+
+      <p>
+        <b>Urheberrecht:</b> <br />
+        Die Inhalte dieser Webseite unterliegen, soweit dies rechtlich möglich ist,
+        diversen Schutzrechten (z.B dem Urheberrecht). Jegliche <br />
+        Verwendung/Verbreitung von bereitgestelltem Material, welche
+        urheberrechtlich untersagt ist, bedarf schriftlicher Zustimmung des
+        Webseitenbetreibers.
+      </p>
+
+      <p>
+        <b>Haftungsausschluss:</b> <br />
+        Trotz sorgfältiger inhaltlicher Kontrolle übernimmt der Webseitenbetreiber
+        dieser Webseite keine Haftung für die Inhalte externer Links. <br />
+        Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber
+        verantwortlich. Sollten Sie dennoch auf ausgehende Links aufmerksam
+        werden,<br />
+        welche auf eine Webseite mit rechtswidriger Tätigkeit/Information verweisen,
+        ersuchen wir um dementsprechenden Hinweis, um diese nach § 17 Abs. 2 ECG
+        umgehend zu entfernen.<br />
+        Die Urheberrechte Dritter werden vom Betreiber dieser Webseite mit größter
+        Sorgfalt beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung
+        aufmerksam werden,<br />
+        bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden derartiger
+        Rechtsverletzungen werden wir den betroffenen Inhalt umgehend entfernen.
+      </p>
+      <p>
+        Quelle: <b><a href="https://fairesRecht.at/">FairesRecht</a></b>
+      </p>
+    </section>
+
+    <ng-template #english class="content">
+      <h1>Imprint</h1>
+
+      <p>
+        <b>
+          Information and disclosure in accordance with Section 5 (1) ECG, Section 25 MedienG, Section 63 GewO and Section 14 UGB</b>
+      </p>
+
+      <p><b>Website operator:</b> Johannes Höllwerth</p>
+
+      <p><b>Address:</b> Thor, 166, 5760 Saalfelden</p>
+
+      <p>
+        <b>Contact details:</b> <br>
+        Telephone: On request <br>
+        Email: johannes.hoellwerth@protonmail.com <br>
+      </p>
+
+      <p><b>Applicable legislation:</b> www.ris.bka.gv.at</p>
+
+      <p>
+        <b>Online Dispute Resolution:</b> <br />
+        Consumers who are established in Austria or in another contracting state of the ODR-VO have the possibility of problems<br>
+        regarding the purchase of goods or services in the context of an online dispute resolution (according to OS, AStG).<br>
+        The European Commission provides a platform for this: https://ec.europa.eu/consumers/odr
+      </p>
+
+      <p>
+        <b>Copyright:</b> <br />
+        As far as this is legally possible, the contents of this website are subject to various property rights (e.g. copyright). Any<br>
+        Use/distribution of provided material, which is prohibited by copyright, requires the written consent of the website operator.
+      </p>
+
+      <p>
+        <b>Disclaimer:</b> <br>
+        Despite careful content control, the website operator of this website assumes no  liability for the content of external links.<br>
+        The operators of the linked pages are solely responsible for their content. Should you nevertheless become aware of outgoing links,<br>
+        which refer to a website with illegal activity/information, we ask for a corresponding notification in order to remove it immediately<br>
+        according to § 17 Para. 2 ECG. The copyrights of third parties are observed by the operator of this website with the utmost care.<br>
+        Should you nevertheless become aware of a copyright infringement, we ask for a corresponding note. As soon as we become<br>
+        aware of such legal violations, we will remove the affected content immediately.
+      </p>
+      <p>
+        Source: <b><a href="https://fairesRecht.at/">FairesRecht</a></b>
+      </p>
+    </ng-template>
+  </section>
+
+</div>
