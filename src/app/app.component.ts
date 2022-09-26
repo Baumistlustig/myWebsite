@@ -11,12 +11,12 @@ export class AppComponent implements OnInit{
 
   constructor(private overlay: OverlayContainer) { }
 
-  getDarkmode(): boolean {
-    return localStorage.getItem('theme') === 'darkmode';
+  getDarkmode(): string | null {
+    return localStorage.getItem('theme');
   }
 
   ngOnInit(): void {
-    const darkClassName = 'darkMode';
+    const darkClassName = 'darkmode';
 
     if (localStorage.getItem('theme') === 'darkmode') {
       this.overlay.getContainerElement().classList.add(darkClassName);

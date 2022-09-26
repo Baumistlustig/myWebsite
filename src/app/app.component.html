@@ -1,13 +1,6 @@
-<div class="mat-app-background darkMode" *ngIf="getDarkmode(); else whitemode">
+<div class="mat-app-background {{getDarkmode()}}">
   <app-header></app-header>
   <router-outlet></router-outlet>
 
   <app-scroll-to-top></app-scroll-to-top>
 </div>
-
-<ng-template class="mat-app-background" #whitemode>
-  <app-header></app-header>
-  <router-outlet></router-outlet>
-
-  <app-scroll-to-top></app-scroll-to-top>
-</ng-template>

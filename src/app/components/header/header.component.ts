@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     this.toggleControl.setValue(this.theme === 'darkmode')
 
     this.toggleControl.valueChanges.subscribe((darkMode) => {
-      const darkClassName = 'darkMode';
+      const darkClassName = 'darkmode';
       this.className = darkMode ? darkClassName : '';
 
       if (darkMode) {

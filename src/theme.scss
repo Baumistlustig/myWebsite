@@ -22,7 +22,7 @@ $dark-theme: mat.define-dark-theme((
   ),
 ));
 
-.darkMode {
+.darkmode {
   @include mat.all-component-colors($dark-theme);
 }
 
