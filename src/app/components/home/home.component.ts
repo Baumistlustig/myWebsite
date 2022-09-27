@@ -27,4 +27,11 @@ export class HomeComponent implements OnInit {
     const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
   }
+
+  getDarkmode(): string {
+    if (localStorage.getItem('theme') === "darkmode") {
+      return "#gh-dark-mode-only";
+    }
+    return "";
+  }
 }
