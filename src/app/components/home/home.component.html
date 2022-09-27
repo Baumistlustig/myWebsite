@@ -14,7 +14,7 @@
   </section>
 
   <section class="hidden">
-    <h1>📊 My Stats</h1>
+    <h1>📊 My GitHub Stats</h1>
     <a href="https://github.com/baumistlustig/stats">
       <img
         src="https://raw.githubusercontent.com/Baumistlustig/stats/aa6ddcfab6a789cd4d991f38dc2ed245a60b4a03/generated/overview.svg{{getDarkmode()}}"
@@ -23,6 +23,14 @@
         src="https://raw.githubusercontent.com/Baumistlustig/stats/aa6ddcfab6a789cd4d991f38dc2ed245a60b4a03/generated/languages.svg{{getDarkmode()}}"
         alt="github-languages">
     </a>
+
+    <h2>🏆 Trophies</h2>
+    <img *ngIf="getDarkmode() === '#gh-dark-mode-only'; else whitemode"
+         src="https://github-profile-trophy.vercel.app/?username=baumistlustig&theme=darkhub"
+         alt="trophies">
+    <ng-template #whitemode>
+      <img src="https://github-profile-trophy.vercel.app/?username=ryo-ma&theme=flat" alt="trophies">
+    </ng-template>
   </section>
 
   <section class="hidden">
