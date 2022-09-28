@@ -7,7 +7,7 @@ import { OverlayContainer } from "@angular/cdk/overlay";
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit{
-  title = 'Johannes Hölllwerth';
+  title = 'Baumistlustig';
 
   constructor(private overlay: OverlayContainer) { }
 
