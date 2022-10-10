@@ -1,0 +1,26 @@
+<mat-tab-group mat-dialog-content>
+
+  <mat-tab label="Register">
+    <ng-template matTabContent>
+      <p>Tab 1 content</p>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Login">
+    <ng-template matTabContent>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Username" [(ngModel)]="credentials.username">
+        </mat-form-field>
+
+        <span fxFlex></span>
+
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" [(ngModel)]="credentials.password">
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" fxLayoutAlign="center start" [mat-dialog-close]="credentials" cdkFocusInitial>Login</button>
+
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
