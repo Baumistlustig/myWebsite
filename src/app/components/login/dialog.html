@@ -2,7 +2,31 @@
 
   <mat-tab label="Register">
     <ng-template matTabContent>
-      <p>Tab 1 content</p>
+      <div class="register">
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <mat-form-field>
+              <input matInput placeholder="Username" [(ngModel)]="credentials.username" name="username">
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <mat-form-field>
+              <input matInput placeholder="Email" [(ngModel)]="credentials.email">
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <mat-form-field>
+              <input matInput placeholder="Password" type="password" [(ngModel)]="credentials.password">
+            </mat-form-field>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <button mat-raised-button color="primary" fxLayoutAlign="center start" [mat-dialog-close]="credentials"
+              cdkFocusInitial>Register
+      </button>
+
     </ng-template>
   </mat-tab>
 
@@ -19,7 +43,9 @@
           <input matInput placeholder="Password" type="password" [(ngModel)]="credentials.password">
         </mat-form-field>
       </div>
-      <button mat-raised-button color="primary" fxLayoutAlign="center start" [mat-dialog-close]="credentials" cdkFocusInitial>Login</button>
+      <button mat-raised-button color="primary" fxLayoutAlign="center start" [mat-dialog-close]="credentials"
+              cdkFocusInitial>Login
+      </button>
 
     </ng-template>
   </mat-tab>

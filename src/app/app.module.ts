@@ -18,10 +18,11 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
 import { ImprintComponent } from './components/imprint/imprint.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
-import {LoginComponent, LoginDialog} from './components/login/login.component';
+import { LoginComponent, LoginDialog } from './components/login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatInputModule} from "@angular/material/input";
-import {MatTabsModule} from "@angular/material/tabs";
+import { MatInputModule } from "@angular/material/input";
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatListModule } from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     FormsModule,
     MatInputModule,
     MatTabsModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

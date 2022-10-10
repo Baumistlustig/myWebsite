@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material/dial
 
 export interface DialogData {
   username: string;
+  email: string;
   password: string;
 }
 
