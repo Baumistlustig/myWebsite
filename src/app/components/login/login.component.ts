@@ -34,7 +34,12 @@ export class LoginComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.loginProcess(result.username, result.password);
+      if (!result.email) {
+        this.loginProcess(result.username, result.password);
+        return;
+      }
+
+      this.registerProcess(result.username, result.email, result.password);
     });
   }
 
@@ -64,6 +69,38 @@ export class LoginComponent {
       this.snackBar.open(`Error: ${e.message}`, '',
         { duration: 3000 }
       );
+    });
+  }
+
+  registerProcess(username: string, email: string, password: string) {
+    this.authService.register({ username, email, password }).subscribe(() => {
+      this.snackBar.open('You successfully registered, please check your emails!', '', {
+        duration: 3000
+      });
+    }, (e: HttpErrorResponse) => {
+      if (e.status === 400) {
+        this.snackBar.open('Username too long!', '',
+          { duration: 3000 });
+        return;
+      }
+      // Catch already existing usernames / emails
+      if (e.status === 409) {
+        // Catch already existing username
+        if (e.error.message === 'user_already_exists') {
+          this.snackBar.open('Username already exists!', '',
+          { duration: 3000 });
+          return;
+        }
+        // Catch already existing email
+        if (e.error.message === 'email_already_exists') {
+          this.snackBar.open('Email already exists!', '',
+            { duration: 3000 });
+          return;
+        }
+        return;
+      }
+      this.snackBar.open(`Error: ${e.message}`, '',
+        { duration: 3000 });
     });
   }
 }
