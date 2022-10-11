@@ -18,6 +18,14 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
 import { ImprintComponent } from './components/imprint/imprint.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
+import { LoginComponent, LoginDialog } from './components/login/login.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from "@angular/material/input";
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatListModule } from "@angular/material/list";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import {AuthInterceptor} from "./http/services/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -26,9 +34,12 @@ import { MatSelectModule } from "@angular/material/select";
     HomeComponent,
     ProjectsComponent,
     ScrollToTopComponent,
-    ImprintComponent
+    ImprintComponent,
+    LoginComponent,
+    LoginDialog,
   ],
   imports: [
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -42,8 +53,19 @@ import { MatSelectModule } from "@angular/material/select";
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
+    MatInputModule,
+    MatTabsModule,
+    MatListModule,
+    HttpClientModule,
+    MatSnackBarModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
