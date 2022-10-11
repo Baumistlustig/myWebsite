@@ -6,24 +6,24 @@
         <mat-list role="list">
           <mat-list-item role="listitem">
             <mat-form-field>
-              <input matInput placeholder="Username" [(ngModel)]="credentials.username" name="username">
+              <input matInput placeholder="Username" [(ngModel)]="registerCredentials.username" name="username">
             </mat-form-field>
           </mat-list-item>
 
           <mat-list-item role="listitem">
             <mat-form-field>
-              <input matInput placeholder="Email" [(ngModel)]="credentials.email">
+              <input matInput placeholder="Email" [(ngModel)]="registerCredentials.email">
             </mat-form-field>
           </mat-list-item>
 
           <mat-list-item role="listitem">
             <mat-form-field>
-              <input matInput placeholder="Password" type="password" [(ngModel)]="credentials.password">
+              <input matInput placeholder="Password" type="password" [(ngModel)]="registerCredentials.password">
             </mat-form-field>
           </mat-list-item>
         </mat-list>
       </div>
-      <button mat-raised-button color="primary" fxLayoutAlign="center start" [mat-dialog-close]="credentials"
+      <button mat-raised-button color="primary" fxLayoutAlign="center start" [mat-dialog-close]="registerCredentials"
               cdkFocusInitial>Register
       </button>
 
