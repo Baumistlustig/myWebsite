@@ -23,9 +23,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from "@angular/material/input";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatListModule } from "@angular/material/list";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
-import {AuthInterceptor} from "./http/services/auth.interceptor";
+import { AuthInterceptor } from "./http/services/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -39,6 +39,8 @@ import {AuthInterceptor} from "./http/services/auth.interceptor";
     LoginDialog,
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     MatDialogModule,
     BrowserModule,
     AppRoutingModule,

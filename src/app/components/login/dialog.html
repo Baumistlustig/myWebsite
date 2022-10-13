@@ -1,52 +1,43 @@
 <mat-tab-group mat-dialog-content>
 
-  <mat-tab label="Register">
+  <mat-tab label="Login">
     <ng-template matTabContent>
-      <div class="register">
-        <mat-list role="list">
-          <mat-list-item role="listitem">
-            <mat-form-field>
-              <input matInput placeholder="Username" [(ngModel)]="registerCredentials.username" name="username">
-            </mat-form-field>
-          </mat-list-item>
+      <form fxLayoutAlign="stretch" fxLayout="column" class="post-form"
+            [formGroup]="login" (ngSubmit)="loginProcess()"
+      >
+        <mat-form-field>
+          <input matInput placeholder="Username" formControlName="username">
+        </mat-form-field>
 
-          <mat-list-item role="listitem">
-            <mat-form-field>
-              <input matInput placeholder="Email" [(ngModel)]="registerCredentials.email">
-            </mat-form-field>
-          </mat-list-item>
-
-          <mat-list-item role="listitem">
-            <mat-form-field>
-              <input matInput placeholder="Password" type="password" [(ngModel)]="registerCredentials.password">
-            </mat-form-field>
-          </mat-list-item>
-        </mat-list>
-      </div>
-      <button mat-raised-button color="primary" fxLayoutAlign="center start" [mat-dialog-close]="registerCredentials"
-              cdkFocusInitial>Register
-      </button>
-
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" formControlName="password">
+        </mat-form-field>
+        <button mat-raised-button type="submit" class="mt-5" color="primary">Login</button>
+        <div class="links">
+          <a routerLink="/forgot" class="anchor forget">Forgot Password</a>
+        </div>
+      </form>
     </ng-template>
   </mat-tab>
 
-  <mat-tab label="Login">
+  <mat-tab label="Sign Up">
     <ng-template matTabContent>
-      <div>
-        <mat-form-field>
-          <input matInput placeholder="Username" [(ngModel)]="credentials.username">
-        </mat-form-field>
+      <form fxLayoutAlign="stretch" fxLayout="column" class="post-form"
+                                     [formGroup]="register" (ngSubmit)="registerProcess()"
+    >
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username">
+      </mat-form-field>
 
-        <span fxFlex></span>
+      <mat-form-field>
+        <input matInput type="email" placeholder="Email" formControlName="email">
+      </mat-form-field>
 
-        <mat-form-field>
-          <input matInput placeholder="Password" type="password" [(ngModel)]="credentials.password">
-        </mat-form-field>
-      </div>
-      <button mat-raised-button color="primary" fxLayoutAlign="center start" [mat-dialog-close]="credentials"
-              cdkFocusInitial>Login
-      </button>
-
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="password">
+      </mat-form-field>
+      <button mat-raised-button type="submit" class="mt-5" color="primary">Register</button>
+    </form>
     </ng-template>
   </mat-tab>
 </mat-tab-group>
