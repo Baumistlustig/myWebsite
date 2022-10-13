@@ -26,6 +26,8 @@ import { MatListModule } from "@angular/material/list";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { AuthInterceptor } from "./http/services/auth.interceptor";
+import { PostsComponent } from './components/posts/posts.component';
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { AuthInterceptor } from "./http/services/auth.interceptor";
     ImprintComponent,
     LoginComponent,
     LoginDialog,
+    PostsComponent,
   ],
   imports: [
     FormsModule,
@@ -60,6 +63,7 @@ import { AuthInterceptor } from "./http/services/auth.interceptor";
     MatListModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatCardModule,
   ],
   providers: [
     {
