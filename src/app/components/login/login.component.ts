@@ -1,9 +1,11 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { AuthService } from "../../http/services/auth.service";
 import { HttpErrorResponse } from "@angular/common/http";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import {MatMenuPanel} from "@angular/material/menu";
 
 export interface DialogData {
   username: string;
@@ -22,8 +24,11 @@ export class LoginComponent {
   username: string | undefined;
   password: string | undefined;
 
+  menu: MatMenuPanel | null = null;
+
   constructor(
     private readonly dialog: MatDialog,
+    private readonly router: Router
     ) { }
 
   openDialog(): void {
@@ -31,6 +36,16 @@ export class LoginComponent {
       width: '450px',
       data: { name: this.username, animal: this.password }
     });
+  }
+
+  userIsLoggedIn() {
+    return !!localStorage.getItem('token');
+  }
+
+  logOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user_id');
+    this.router.navigate(['/']);
   }
 }
 
