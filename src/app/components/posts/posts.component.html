@@ -1,10 +1,10 @@
-<div class="posts" >
+<div class="posts">
   <mat-card class="post" *ngFor="let post of posts; let i = index">
-    <mat-card-title>{{post.title}}</mat-card-title>
-    <mat-card-subtitle>{{convertDate(post.created)}}</mat-card-subtitle>
+    <mat-card-title>{{ post.title }}</mat-card-title>
+    <mat-card-subtitle>{{ convertDate(post.created) }}</mat-card-subtitle>
 
     <mat-card-content class="postContent">
-      {{post.content}}
+      {{ post.content }}
     </mat-card-content>
 
     <mat-card-actions class="postFooter">
@@ -13,7 +13,9 @@
 
       <span fxFlex></span>
 
-      <button mat-button *ngIf="userIsAuthor(post.authorId)"><mat-icon>edit</mat-icon>Edit</button>
+      <button mat-button *ngIf="userIsAuthor(post.authorId)">
+        <mat-icon>edit</mat-icon>Edit
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>

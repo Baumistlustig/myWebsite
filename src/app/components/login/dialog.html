@@ -1,18 +1,28 @@
 <mat-tab-group mat-dialog-content>
-
   <mat-tab label="Login">
     <ng-template matTabContent>
-      <form fxLayoutAlign="stretch" fxLayout="column" class="post-form"
-            [formGroup]="login" (ngSubmit)="loginProcess()"
+      <form
+        fxLayoutAlign="stretch"
+        fxLayout="column"
+        class="post-form"
+        [formGroup]="login"
+        (ngSubmit)="loginProcess()"
       >
         <mat-form-field>
-          <input matInput placeholder="Username" formControlName="username">
+          <input matInput placeholder="Username" formControlName="username" />
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Password" type="password" formControlName="password">
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            formControlName="password"
+          />
         </mat-form-field>
-        <button mat-raised-button type="submit" class="mt-5" color="primary">Login</button>
+        <button mat-raised-button type="submit" class="mt-5" color="primary">
+          Login
+        </button>
         <div class="links">
           <a routerLink="/forgot" class="anchor forget">Forgot Password</a>
         </div>
@@ -22,22 +32,38 @@
 
   <mat-tab label="Sign Up">
     <ng-template matTabContent>
-      <form fxLayoutAlign="stretch" fxLayout="column" class="post-form"
-                                     [formGroup]="register" (ngSubmit)="registerProcess()"
-    >
-      <mat-form-field>
-        <input matInput placeholder="Username" formControlName="username">
-      </mat-form-field>
+      <form
+        fxLayoutAlign="stretch"
+        fxLayout="column"
+        class="post-form"
+        [formGroup]="register"
+        (ngSubmit)="registerProcess()"
+      >
+        <mat-form-field>
+          <input matInput placeholder="Username" formControlName="username" />
+        </mat-form-field>
 
-      <mat-form-field>
-        <input matInput type="email" placeholder="Email" formControlName="email">
-      </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="email"
+            placeholder="Email"
+            formControlName="email"
+          />
+        </mat-form-field>
 
-      <mat-form-field>
-        <input matInput type="password" placeholder="Password" formControlName="password">
-      </mat-form-field>
-      <button mat-raised-button type="submit" class="mt-5" color="primary">Register</button>
-    </form>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </mat-form-field>
+        <button mat-raised-button type="submit" class="mt-5" color="primary">
+          Register
+        </button>
+      </form>
     </ng-template>
   </mat-tab>
 </mat-tab-group>

@@ -1,15 +1,14 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { FormControl } from "@angular/forms";
-import {OverlayContainer} from "@angular/cdk/overlay";
+import { FormControl } from '@angular/forms';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private overlay: OverlayContainer) { }
+  constructor(private overlay: OverlayContainer) {}
 
   toggleControl = new FormControl(false);
 
@@ -18,7 +17,7 @@ export class HeaderComponent implements OnInit {
   @HostBinding('class') className = '';
 
   ngOnInit(): void {
-    this.toggleControl.setValue(this.theme === 'darkmode')
+    this.toggleControl.setValue(this.theme === 'darkmode');
 
     this.toggleControl.valueChanges.subscribe((darkMode) => {
       const darkClassName = 'darkmode';
@@ -34,5 +33,4 @@ export class HeaderComponent implements OnInit {
       this.overlay.getContainerElement().classList.remove(darkClassName);
     });
   }
-
 }
