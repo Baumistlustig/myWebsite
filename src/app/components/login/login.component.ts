@@ -1,9 +1,10 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { AuthService } from "../../http/services/auth.service";
 import { HttpErrorResponse } from "@angular/common/http";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 export interface DialogData {
   username: string;
@@ -24,7 +25,12 @@ export class LoginComponent {
 
   constructor(
     private readonly dialog: MatDialog,
+    private readonly router: Router
     ) { }
+
+  relayData() {
+    !!localStorage.getItem('token') ? this.router.navigate(['/settings']) : this.openDialog();
+  }
 
   openDialog(): void {
     const dialogRef: MatDialogRef<LoginDialog> = this.dialog.open(LoginDialog, {
