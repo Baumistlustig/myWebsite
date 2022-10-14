@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { UserService } from "../../../http/services/user.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-account',
@@ -9,22 +11,39 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class AccountComponent implements OnInit {
   accountForm!: FormGroup;
 
-  constructor() { }
+  constructor(
+    private readonly userService: UserService,
+    private readonly snackBar: MatSnackBar,
+  ) { }
 
   ngOnInit(): void {
-    this.initForm();
+    this.initForm('');
+    this.getOldCredentials();
   }
 
-  initForm(): void {
-    this.accountForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
-      confirmPassword: new FormControl('', [Validators.required]),
+  getOldCredentials(): void {
+    this.userService.getUser(localStorage.getItem('user_id')).subscribe((result) => {
+      this.initForm(result.username);
     });
   }
 
-  saveSettings() {
+  initForm(username: string): void {
+    this.accountForm = new FormGroup({
+      username: new FormControl(username, [Validators.required]),
+      oldPassword: new FormControl('', [Validators.required]),
+      newPassword: new FormControl('', [Validators.required]),
+    });
+  }
 
+  saveSettings(): void {
+    if (this.accountForm.valid) {
+      this.userService.editUser(
+        this.accountForm.value.username,
+        this.accountForm.value.email,
+        this.accountForm.value.newPassword,
+      ).subscribe(() => {
+        this.snackBar.open('Saved your settings!', '', { duration: 3000 });
+      });
+    }
   }
 }
