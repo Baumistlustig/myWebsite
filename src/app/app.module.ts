@@ -32,6 +32,9 @@ import { AuthInterceptor } from './http/services/auth.interceptor';
 import { PostsComponent } from './components/posts/posts.component';
 import { MatCardModule } from '@angular/material/card';
 import { SettingsComponent } from './components/settings/settings.component';
+import { AccountComponent } from './components/settings/account/account.component';
+import { AppearanceComponent } from './components/settings/appearance/appearance.component';
+import { ProfileComponent } from './components/settings/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { SettingsComponent } from './components/settings/settings.component';
     LoginDialog,
     PostsComponent,
     SettingsComponent,
+    AccountComponent,
+    AppearanceComponent,
+    ProfileComponent,
   ],
   imports: [
     FormsModule,
