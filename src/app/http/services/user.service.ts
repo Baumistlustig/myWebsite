@@ -20,4 +20,9 @@ export class UserService {
   getUser(id: string | null): Observable<any> {
     return this.http.get(`${environment.domain}user/getuser/${id}`);
   }
+
+  // DeleteUser
+  deleteUser(): Observable<any> {
+    return this.http.delete(`${environment.domain}user/`);
+  }
 }

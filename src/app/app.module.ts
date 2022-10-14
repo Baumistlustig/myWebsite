@@ -35,6 +35,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { AccountComponent } from './components/settings/account/account.component';
 import { AppearanceComponent } from './components/settings/appearance/appearance.component';
 import { ProfileComponent } from './components/settings/profile/profile.component';
+import { DangerZoneComponent, DeleteDialog } from "./components/settings/danger-zone/danger-zone.component";
 
 @NgModule({
   declarations: [
@@ -51,6 +52,8 @@ import { ProfileComponent } from './components/settings/profile/profile.componen
     AccountComponent,
     AppearanceComponent,
     ProfileComponent,
+    DangerZoneComponent,
+    DeleteDialog,
   ],
   imports: [
     FormsModule,
