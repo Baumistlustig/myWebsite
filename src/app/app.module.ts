@@ -28,6 +28,8 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { AuthInterceptor } from "./http/services/auth.interceptor";
 import { PostsComponent } from './components/posts/posts.component';
 import { MatCardModule } from "@angular/material/card";
+import { AppearanceComponent } from "./components/settings/appearance/appearance.component";
+import { ProfileComponent } from "./components/settings/profile/profile.component";
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { MatCardModule } from "@angular/material/card";
     LoginComponent,
     LoginDialog,
     PostsComponent,
+    AppearanceComponent,
+    ProfileComponent,
   ],
   imports: [
     FormsModule,
