@@ -3,11 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.animateContent();
@@ -20,7 +19,7 @@ export class HomeComponent implements OnInit {
           entry.target.classList.add('show');
           return;
         }
-        entry.target.classList.remove('show')
+        entry.target.classList.remove('show');
       });
     });
 
@@ -29,9 +28,9 @@ export class HomeComponent implements OnInit {
   }
 
   getDarkmode(): string {
-    if (localStorage.getItem('theme') === "darkmode") {
-      return "#gh-dark-mode-only";
+    if (localStorage.getItem('theme') === 'darkmode') {
+      return '#gh-dark-mode-only';
     }
-    return "";
+    return '';
   }
 }

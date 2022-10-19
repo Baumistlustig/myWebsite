@@ -3,11 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.animateContent();
@@ -20,7 +19,7 @@ export class ProjectsComponent implements OnInit {
           entry.target.classList.add('show');
           return;
         }
-        entry.target.classList.remove('show')
+        entry.target.classList.remove('show');
       });
     });
 
