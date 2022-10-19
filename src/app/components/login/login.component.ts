@@ -31,7 +31,7 @@ export class LoginComponent {
   constructor(
     private readonly dialog: MatDialog,
     private readonly router: Router,
-    private readonly snackbar: MatSnackBar
+    private readonly snackbar: MatSnackBar,
   ) {}
 
   openDialog(): void {
@@ -67,7 +67,7 @@ export class LoginDialog implements OnInit {
     private readonly authService: AuthService,
     private readonly snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public credentials: DialogData,
-    @Inject(MAT_DIALOG_DATA) public registerCredentials: DialogData
+    @Inject(MAT_DIALOG_DATA) public registerCredentials: DialogData,
   ) {}
 
   ngOnInit(): void {
@@ -125,7 +125,7 @@ export class LoginDialog implements OnInit {
 
             // Catch all other errors
             this.snackBar.open(`Error: ${e.message}`, '', { duration: 3000 });
-          }
+          },
         );
     }
   }
@@ -145,7 +145,7 @@ export class LoginDialog implements OnInit {
               '',
               {
                 duration: 3000,
-              }
+              },
             );
 
             // Close The dialog
@@ -175,7 +175,7 @@ export class LoginDialog implements OnInit {
               return;
             }
             this.snackBar.open(`Error: ${e.message}`, '', { duration: 3000 });
-          }
+          },
         );
     }
   }

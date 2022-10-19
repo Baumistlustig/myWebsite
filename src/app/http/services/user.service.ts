@@ -1,14 +1,13 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { environment } from "../../../environments/environment";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class UserService {
-  constructor(private readonly http: HttpClient) {
-  }
+  constructor(private readonly http: HttpClient) {}
 
   getUserById(userId: string): Observable<object> {
     return this.http.get(`${environment.domain}user/getuser/${userId}`);
@@ -17,12 +16,12 @@ export class UserService {
   editUser(
     username: string,
     email: string,
-    password: string
+    password: string,
   ): Observable<object> {
     return this.http.post(`${environment.domain}user/edit`, {
       username,
       email,
-      password
+      password,
     });
   }
 
@@ -38,7 +37,7 @@ export class UserService {
   editProfile(bio: string, status: string): Observable<object> {
     return this.http.patch(`${environment.domain}profile/edit`, {
       bio,
-      status
+      status,
     });
   }
 
