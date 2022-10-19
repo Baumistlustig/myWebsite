@@ -4,10 +4,11 @@ import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root"
 })
 export class PostsService {
-  constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {
+  }
 
   getAllPosts(): Observable<any> {
     return this.http.get(`${environment.domain}post/`);
@@ -15,5 +16,9 @@ export class PostsService {
 
   createPost(post: object) {
     return this.http.post(`${environment.domain}post/`, post);
+  }
+
+  getPostById(post_id: string): Observable<any> {
+    return this.http.get(`${environment.domain}post/${post_id}`);
   }
 }

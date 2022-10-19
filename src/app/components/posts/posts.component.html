@@ -6,8 +6,9 @@
 
       <span fxFlex></span>
 
-      <img class="profile-picture">
-      <span class="profile-name">Username</span>
+      <span class="profile-name">{{users[i].username}}</span>
+      <img class="profile-picture" src="{{domain}}profile/picture/{{post.authorId}}"
+           alt="profile-picture">
     </mat-card-header>
 
     <mat-card-content class="postContent">
