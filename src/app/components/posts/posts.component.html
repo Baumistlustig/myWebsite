@@ -1,7 +1,5 @@
 <div class="posts">
   <mat-card class="post" *ngFor="let post of posts; let i = index">
-    <mat-card-title>{{ post.title }}</mat-card-title>
-    <mat-card-subtitle>{{ convertDate(post.created) }}</mat-card-subtitle>
 
     <mat-card-content class="postContent">
       {{ post.content }}

@@ -1,13 +1,17 @@
 <mat-card>
-    <mat-toolbar color="warn">
-      <mat-card-title>DangerZone</mat-card-title>
-    </mat-toolbar>
+  <mat-toolbar color="warn">
+    <mat-card-title>DangerZone</mat-card-title>
+  </mat-toolbar>
   <mat-card-content>
-    <form (ngSubmit)="openDialog()"
-          fxLayoutAlign="stretch"
-          fxLayout="column"
-          class="post-form">
-      <button mat-raised-button color="warn" class="submit-button">Delete Account</button>
+    <form
+      (ngSubmit)="openDialog()"
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+      class="post-form"
+    >
+      <button mat-raised-button color="warn" class="submit-button">
+        Delete Account
+      </button>
     </form>
   </mat-card-content>
 </mat-card>
