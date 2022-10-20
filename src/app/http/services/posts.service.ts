@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable } from "rxjs";
+import { Post } from "../../models/posts.models";
 
 @Injectable({
   providedIn: "root"
@@ -16,6 +17,14 @@ export class PostsService {
 
   createPost(post: object) {
     return this.http.post(`${environment.domain}post/`, post);
+  }
+
+  editPost(post: Post): Observable<any> {
+    return this.http.patch(`${environment.domain}post/`, {
+      title: post.title,
+      content: post.content,
+      postId: post._id
+    });
   }
 
   getPostById(post_id: string): Observable<any> {

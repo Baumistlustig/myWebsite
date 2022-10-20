@@ -4,6 +4,7 @@ import { Post } from "../../models/posts.models";
 import { environment } from "../../../environments/environment";
 import { UserService } from "../../http/services/user.service";
 import { User } from "../../models/user.model";
+import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "app-posts",
@@ -17,6 +18,8 @@ export class PostsComponent implements OnInit {
   ) {
   }
 
+  postGroup!: FormGroup;
+
   posts: Post[] = [];
 
   users: User[] = [];
@@ -24,10 +27,22 @@ export class PostsComponent implements OnInit {
   userId: string = localStorage.getItem("user_id") || "";
   domain: string = environment.domain;
 
-  editing: boolean = false;
+  editing: boolean | string = false;
+
+  save: string = "Save";
+  edit: string = "Edit";
 
   ngOnInit(): void {
     this.getPosts();
+  }
+
+  initForm(post: Post): void {
+    this.editing = post._id;
+
+    this.postGroup = new FormGroup({
+      title: new FormControl(post.title, []),
+      content: new FormControl(post.content, [])
+    });
   }
 
   getPosts(): void {
@@ -40,14 +55,34 @@ export class PostsComponent implements OnInit {
 
   getUsers(): void {
     for (let i = 0; i < this.posts.length; i++) {
-      this.userService.getUser(this.posts[i].authorId).subscribe((user: any) => {
-        this.users.push(user);
-      });
+      this.userService
+        .getUser(this.posts[i].authorId)
+        .subscribe((user: any) => {
+          this.users.push(user);
+        });
     }
   }
 
   convertDate(date: Date): string {
     return new Date(date).toLocaleString();
+  }
+
+  savePost(post: Post): void {
+    const editPost: Post = {
+      _id: post._id,
+      title: this.postGroup.value.title,
+      content: this.postGroup.value.content,
+      authorId: post.authorId,
+      created: post.created,
+      updated: post.updated,
+      likedBy: post.likedBy,
+      dislikedBy: post.dislikedBy,
+      comments: post.comments
+    };
+    this.postService.editPost(editPost).subscribe(() => {
+      this.getPosts();
+    });
+    this.editing = false;
   }
 
   userIsAuthor(authorId: string): boolean {
@@ -56,17 +91,25 @@ export class PostsComponent implements OnInit {
 
   //Voting functions
   voteUp = (i: number) => {
-    if (this.posts[i].dislikedBy.includes(localStorage.getItem("user_id") || "")) {
+    if (
+      this.posts[i].dislikedBy.includes(localStorage.getItem("user_id") || "")
+    ) {
       //remove element
-      const userIndex = this.posts[i].dislikedBy.indexOf(localStorage.getItem("user_id") || "");
+      const userIndex = this.posts[i].dislikedBy.indexOf(
+        localStorage.getItem("user_id") || ""
+      );
       this.posts[i].dislikedBy.splice(userIndex, 1);
     }
-    if (!this.posts[i].likedBy.includes(localStorage.getItem("user_id") || "")) {
+    if (
+      !this.posts[i].likedBy.includes(localStorage.getItem("user_id") || "")
+    ) {
       // append element
       this.posts[i].likedBy.push(localStorage.getItem("user_id") || "");
     } else {
       //remove element
-      const userIndex = this.posts[i].likedBy.indexOf(localStorage.getItem("user_id") || "");
+      const userIndex = this.posts[i].likedBy.indexOf(
+        localStorage.getItem("user_id") || ""
+      );
       this.posts[i].likedBy.splice(userIndex, 1);
     }
 
@@ -76,15 +119,21 @@ export class PostsComponent implements OnInit {
   voteDown = (i: number) => {
     if (this.posts[i].likedBy.includes(localStorage.getItem("user_id") || "")) {
       //remove element
-      const userIndex = this.posts[i].likedBy.indexOf(localStorage.getItem("user_id") || "");
+      const userIndex = this.posts[i].likedBy.indexOf(
+        localStorage.getItem("user_id") || ""
+      );
       this.posts[i].likedBy.splice(userIndex, 1);
     }
-    if (!this.posts[i].dislikedBy.includes(localStorage.getItem("user_id") || "")) {
+    if (
+      !this.posts[i].dislikedBy.includes(localStorage.getItem("user_id") || "")
+    ) {
       // append element
       this.posts[i].dislikedBy.push(localStorage.getItem("user_id") || "");
     } else {
       //remove element
-      const userIndex = this.posts[i].dislikedBy.indexOf(localStorage.getItem("user_id") || "");
+      const userIndex = this.posts[i].dislikedBy.indexOf(
+        localStorage.getItem("user_id") || ""
+      );
       this.posts[i].dislikedBy.splice(userIndex, 1);
     }
 
