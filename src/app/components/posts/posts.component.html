@@ -19,14 +19,28 @@
     </mat-card-content>
 
     <mat-card-actions class="postFooter">
-      <button mat-icon-button color="{{returnVoted(post, true)}}" (click)="voteUp(i)">
+      <button *ngIf="userIsAuthor(post.authorId); else notLoggedIn1" mat-icon-button color="{{returnVoted(post, true)}}"
+              (click)="voteUp(i)">
         <mat-icon>thumb_up</mat-icon>
       </button>
       {{post.likedBy.length}}
-      <button mat-icon-button color="{{returnVoted(post, false)}}" (click)="voteDown(i)">
+      <button *ngIf="userIsAuthor(post.authorId); else notLoggedIn2" mat-icon-button
+              color="{{returnVoted(post, false)}}" (click)="voteDown(i)">
         <mat-icon>thumb_down</mat-icon>
       </button>
       {{post.dislikedBy.length}}
+
+      <ng-template #notLoggedIn1>
+        <button mat-icon-button>
+          <mat-icon>thumb_up</mat-icon>
+        </button>
+      </ng-template>
+
+      <ng-template #notLoggedIn2>
+        <button mat-icon-button>
+          <mat-icon>thumb_down</mat-icon>
+        </button>
+      </ng-template>
 
       <span fxFlex></span>
 

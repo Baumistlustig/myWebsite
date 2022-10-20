@@ -24,6 +24,8 @@ export class PostsComponent implements OnInit {
   userId: string = localStorage.getItem("user_id") || "";
   domain: string = environment.domain;
 
+  editing: boolean = false;
+
   ngOnInit(): void {
     this.getPosts();
   }
