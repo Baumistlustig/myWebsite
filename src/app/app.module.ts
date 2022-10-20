@@ -17,29 +17,29 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 import { ImprintComponent } from './components/imprint/imprint.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
+import { MatSelectModule } from "@angular/material/select";
 import {
   LoginComponent,
-  LoginDialog,
-} from './components/login/login.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatInputModule } from '@angular/material/input';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatListModule } from '@angular/material/list';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+  LoginDialog
+} from "./components/login/login.component";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatInputModule } from "@angular/material/input";
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatListModule } from "@angular/material/list";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { AuthInterceptor } from "./http/services/interceptors/auth.interceptor";
 import { PostsComponent } from "./components/posts/posts.component";
-import { MatCardModule } from '@angular/material/card';
-import { SettingsComponent } from './components/settings/settings.component';
-import { AccountComponent } from './components/settings/account/account.component';
-import { AppearanceComponent } from './components/settings/appearance/appearance.component';
-import { ProfileComponent } from './components/settings/profile/profile.component';
+import { MatCardModule } from "@angular/material/card";
+import { SettingsComponent } from "./components/settings/settings.component";
+import { AccountComponent } from "./components/settings/account/account.component";
+import { AppearanceComponent } from "./components/settings/appearance/appearance.component";
+import { ProfileComponent } from "./components/settings/profile/profile.component";
 import {
   DangerZoneComponent,
-  DeleteDialog,
-} from './components/settings/danger-zone/danger-zone.component';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+  DeleteDialog
+} from "./components/settings/danger-zone/danger-zone.component";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
