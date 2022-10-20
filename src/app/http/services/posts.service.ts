@@ -21,4 +21,14 @@ export class PostsService {
   getPostById(post_id: string): Observable<any> {
     return this.http.get(`${environment.domain}post/${post_id}`);
   }
+
+  upvote(post_id: string) {
+    const payload: object = { type: true, post_id: post_id };
+    return this.http.patch(`${environment.domain}post/vote`, payload);
+  }
+
+  downvote(post_id: string) {
+    const payload: object = { type: false, post_id: post_id };
+    return this.http.patch(`${environment.domain}post/vote`, payload);
+  }
 }

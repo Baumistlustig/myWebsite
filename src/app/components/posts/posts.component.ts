@@ -51,4 +51,48 @@ export class PostsComponent implements OnInit {
   userIsAuthor(authorId: string): boolean {
     return authorId === localStorage.getItem("user_id");
   }
+
+  //Voting functions
+  voteUp = (i: number) => {
+    if (this.posts[i].dislikedBy.includes(localStorage.getItem("user_id") || "")) {
+      //remove element
+      const userIndex = this.posts[i].dislikedBy.indexOf(localStorage.getItem("user_id") || "");
+      this.posts[i].dislikedBy.splice(userIndex, 1);
+    }
+    if (!this.posts[i].likedBy.includes(localStorage.getItem("user_id") || "")) {
+      // append element
+      this.posts[i].likedBy.push(localStorage.getItem("user_id") || "");
+    } else {
+      //remove element
+      const userIndex = this.posts[i].likedBy.indexOf(localStorage.getItem("user_id") || "");
+      this.posts[i].likedBy.splice(userIndex, 1);
+    }
+
+    this.postService.upvote(this.posts[i]._id).subscribe(result => console.log(result));
+  };
+
+  voteDown = (i: number) => {
+    if (this.posts[i].likedBy.includes(localStorage.getItem("user_id") || "")) {
+      //remove element
+      const userIndex = this.posts[i].likedBy.indexOf(localStorage.getItem("user_id") || "");
+      this.posts[i].likedBy.splice(userIndex, 1);
+    }
+    if (!this.posts[i].dislikedBy.includes(localStorage.getItem("user_id") || "")) {
+      // append element
+      this.posts[i].dislikedBy.push(localStorage.getItem("user_id") || "");
+    } else {
+      //remove element
+      const userIndex = this.posts[i].dislikedBy.indexOf(localStorage.getItem("user_id") || "");
+      this.posts[i].dislikedBy.splice(userIndex, 1);
+    }
+
+    this.postService.downvote(this.posts[i]._id).subscribe((result: any) => console.log(result));
+  };
+
+  returnVoted(post: Post, type: boolean) {
+    if (type) {
+      return post.likedBy.includes(this.userId) ? "accent" : "none";
+    }
+    return post.dislikedBy.includes(this.userId) ? "accent" : "none";
+  }
 }
