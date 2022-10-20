@@ -68,7 +68,7 @@ export class PostsComponent implements OnInit {
       this.posts[i].likedBy.splice(userIndex, 1);
     }
 
-    this.postService.upvote(this.posts[i]._id).subscribe(result => console.log(result));
+    this.postService.upvote(this.posts[i]._id);
   };
 
   voteDown = (i: number) => {
@@ -86,7 +86,7 @@ export class PostsComponent implements OnInit {
       this.posts[i].dislikedBy.splice(userIndex, 1);
     }
 
-    this.postService.downvote(this.posts[i]._id).subscribe((result: any) => console.log(result));
+    this.postService.downvote(this.posts[i]._id);
   };
 
   returnVoted(post: Post, type: boolean) {
