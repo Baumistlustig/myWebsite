@@ -81,6 +81,12 @@ export class PostsComponent implements OnInit {
     return authorId === localStorage.getItem("user_id");
   }
 
+  deletePost(post_id: string): void {
+    this.postService.deletePost(post_id).subscribe(() => {
+      this.getPosts();
+    });
+  }
+
   //Voting functions
   voteUp = (i: number) => {
     if (

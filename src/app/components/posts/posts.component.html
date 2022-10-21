@@ -75,15 +75,21 @@
       </ng-template>
 
       <span fxFlex></span>
+      <div *ngIf="userIsAuthor(post.authorId)">
 
-      <button
-        mat-button
-        *ngIf="userIsAuthor(post.authorId)"
-        (click)="editing === post._id ? savePost(post) : initForm(post)"
-      >
-        <mat-icon>edit</mat-icon>
-        {{ editing === post._id ? save : edit }}
-      </button>
+        <button mat-button color="warn" *ngIf="editing === post._id" (click)="deletePost(post._id)">
+          <mat-icon>delete</mat-icon>
+          Delete
+        </button>
+
+        <button
+          mat-button (click)="editing === post._id ? savePost(post) : initForm(post)"
+          color="{{ editing === post._id ? 'primary' : 'none' }}"
+        >
+          <mat-icon>edit</mat-icon>
+          {{ editing === post._id ? save : edit }}
+        </button>
+      </div>
     </mat-card-actions>
   </mat-card>
 </div>

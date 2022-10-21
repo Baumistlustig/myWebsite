@@ -27,6 +27,10 @@ export class PostsService {
     });
   }
 
+  deletePost(post_id: string): Observable<any> {
+    return this.http.delete(`${environment.domain}post/${post_id}`);
+  }
+
   getPostById(post_id: string): Observable<any> {
     return this.http.get(`${environment.domain}post/${post_id}`);
   }
