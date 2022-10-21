@@ -9,6 +9,10 @@
         <mat-icon>construction</mat-icon>
         <span>Projects</span>
       </a>
+      <a mat-menu-item routerLink="/posts">
+        <mat-icon>library_books</mat-icon>
+        <span>Posts</span>
+      </a>
       <a mat-menu-item routerLink="/imprint">
         <mat-icon>description</mat-icon>
         <span>Imprint</span>
@@ -19,17 +23,21 @@
 
     <span fxFlex></span>
 
-    <a mat-button href="https://github.com/Baumistlustig/" target="_blank" fxLayoutAlign="center center"
-       class="github-button">
-      <img src="assets/pictures/GitHub-Mark-Light-120px-plus.png" class="github-logo" alt="github">
+    <a
+      mat-button
+      href="https://github.com/Baumistlustig/"
+      target="_blank"
+      fxLayoutAlign="center center"
+      class="github-button"
+    >
+      <img
+        src="assets/pictures/GitHub-Mark-Light-120px-plus.png"
+        class="github-logo"
+        alt="github"
+      />
       <span>Github</span>
     </a>
 
     <app-login></app-login>
-
-    <mat-icon class="mr-8">brightness_5</mat-icon>
-    <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
-    </mat-slide-toggle>
-    <mat-icon>bedtime</mat-icon>
   </mat-toolbar>
 </header>

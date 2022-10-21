@@ -1,0 +1,10 @@
+<h1>Do you want to delete your account?</h1>
+<p>
+  This action cannot be undone. All your posts and comments will be deleted!
+</p>
+<mat-dialog-actions>
+  <button mat-stroked-button (click)="dialogRef.close(false)">Cancel</button>
+  <button mat-raised-button color="warn" (click)="dialogRef.close(true)">
+    Proceed
+  </button>
+</mat-dialog-actions>

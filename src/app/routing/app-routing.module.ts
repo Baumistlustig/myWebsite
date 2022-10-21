@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from "../components/home/home.component";
-import { ProjectsComponent } from "../components/projects/projects.component";
-import { ImprintComponent } from "../components/imprint/imprint.component";
+import { HomeComponent } from '../components/home/home.component';
+import { ProjectsComponent } from '../components/projects/projects.component';
+import { ImprintComponent } from '../components/imprint/imprint.component';
+import { PostsComponent } from '../components/posts/posts.component';
+import { SettingsComponent } from '../components/settings/settings.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'imprint', component: ImprintComponent },
+  { path: 'posts', component: PostsComponent },
+  { path: 'settings', component: SettingsComponent },
 ];
 
 @NgModule({

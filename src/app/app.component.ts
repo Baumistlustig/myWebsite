@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { OverlayContainer } from "@angular/cdk/overlay";
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'Baumistlustig';
 
-  constructor(private overlay: OverlayContainer) { }
+  constructor(private overlay: OverlayContainer) {}
 
   getDarkmode(): string | null {
     return localStorage.getItem('theme');
