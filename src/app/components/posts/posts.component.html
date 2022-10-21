@@ -1,3 +1,9 @@
+<div class="new-post" *ngIf="userIsLoggedIn()">
+  <button mat-fab color="primary" class="scroll-to-top" (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
 <div class="posts">
   <mat-card class="post" *ngFor="let post of posts; let i = index">
     <mat-card-header>

@@ -6,6 +6,8 @@ import { UserService } from "../../http/services/user.service";
 import { User } from "../../models/user.model";
 import { FormControl, FormGroup } from "@angular/forms";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { NewPostComponent } from "./new-post/new-post.component";
 
 @Component({
   selector: "app-posts",
@@ -16,9 +18,9 @@ export class PostsComponent implements OnInit {
   constructor(
     private readonly postService: PostsService,
     private readonly userService: UserService,
-    private readonly snackbar: MatSnackBar
-  ) {
-  }
+    private readonly snackbar: MatSnackBar,
+    private readonly dialog: MatDialog,
+  ) {  }
 
   postGroup!: FormGroup;
 
@@ -151,5 +153,17 @@ export class PostsComponent implements OnInit {
       return post.likedBy.includes(this.userId) ? "accent" : "none";
     }
     return post.dislikedBy.includes(this.userId) ? "accent" : "none";
+  }
+
+  openDialog(): void {
+    const dialogRef: MatDialogRef<NewPostComponent> = this.dialog.open(NewPostComponent);
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.getPosts();
+    });
+  }
+
+  userIsLoggedIn(): boolean {
+    return !!localStorage.getItem("user_id");
   }
 }
