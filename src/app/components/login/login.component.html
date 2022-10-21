@@ -1,0 +1,25 @@
+<button
+  mat-button
+  *ngIf="!userIsLoggedIn(); else notLoggedIn"
+  (click)="openDialog()"
+>
+  <mat-icon>person</mat-icon>
+  <span>Login</span>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="logOut()">
+    <mat-icon>logout</mat-icon>Log Out
+  </button>
+  <a mat-menu-item routerLink="/settings">
+    <mat-icon>settings</mat-icon>
+    <span>Settings</span>
+  </a>
+</mat-menu>
+
+<ng-template #notLoggedIn>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>person</mat-icon>
+    <span>Account</span>
+  </button>
+</ng-template>
