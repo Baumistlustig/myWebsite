@@ -5,6 +5,7 @@ import { environment } from "../../../environments/environment";
 import { UserService } from "../../http/services/user.service";
 import { User } from "../../models/user.model";
 import { FormControl, FormGroup } from "@angular/forms";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-posts",
@@ -14,7 +15,8 @@ import { FormControl, FormGroup } from "@angular/forms";
 export class PostsComponent implements OnInit {
   constructor(
     private readonly postService: PostsService,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    private readonly snackbar: MatSnackBar
   ) {
   }
 
@@ -73,6 +75,9 @@ export class PostsComponent implements OnInit {
 
     this.postService.editPost(post).subscribe(() => {
       this.getPosts();
+      this.snackbar.open('Post saved!', '', {
+        duration: 3000,
+      });
     });
     this.editing = false;
   }
@@ -84,6 +89,9 @@ export class PostsComponent implements OnInit {
   deletePost(post_id: string): void {
     this.postService.deletePost(post_id).subscribe(() => {
       this.getPosts();
+      this.snackbar.open('Post deleted!', '', {
+        duration: 3000,
+      });
     });
   }
 
