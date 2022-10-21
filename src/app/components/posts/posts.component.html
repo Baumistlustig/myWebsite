@@ -82,14 +82,19 @@
 
       <span fxFlex></span>
       <div *ngIf="userIsAuthor(post.authorId)">
-
-        <button mat-button color="warn" *ngIf="editing === post._id" (click)="deletePost(post._id)">
+        <button
+          mat-button
+          color="warn"
+          *ngIf="editing === post._id"
+          (click)="deletePost(post._id)"
+        >
           <mat-icon>delete</mat-icon>
           Delete
         </button>
 
         <button
-          mat-button (click)="editing === post._id ? savePost(post) : initForm(post)"
+          mat-button
+          (click)="editing === post._id ? savePost(post) : initForm(post)"
           color="{{ editing === post._id ? 'primary' : 'none' }}"
         >
           <mat-icon>edit</mat-icon>

@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { Observable } from "rxjs";
-import { Post } from "../../models/posts.models";
+import { Observable } from 'rxjs';
+import { Post } from '../../models/posts.models';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class PostsService {
-  constructor(private readonly http: HttpClient) {
-  }
+  constructor(private readonly http: HttpClient) {}
 
   getAllPosts(): Observable<any> {
     return this.http.get(`${environment.domain}post/`);
@@ -23,7 +22,7 @@ export class PostsService {
     return this.http.patch(`${environment.domain}post/`, {
       title: post.title,
       content: post.content,
-      postId: post._id
+      postId: post._id,
     });
   }
 
