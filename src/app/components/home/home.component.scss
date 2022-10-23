@@ -4,6 +4,20 @@
   margin: 0;
 }
 
+.welcome {
+  text-align: center;
+  margin: 23% auto;
+}
+
+.welcome h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.welcome h2 {
+  color: #FF4081;
+}
+
 section {
   display: grid;
   place-items: center;
@@ -11,6 +25,13 @@ section {
   min-height: 50vh;
   margin-right: 20px;
   margin-left: 20px;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
 .hidden {
@@ -26,12 +47,84 @@ section {
   transform: translateX(0);
 }
 
-.show ul li a {
+a {
   color: lightblue;
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion) {
   .hidden {
     transition: none;
   }
+}
+
+.wordCarousel {
+  font-weight: 100;
+  ul {
+    padding-left: 0;
+  };
+  div {
+    overflow: hidden;
+    position: relative;
+    height: 65px;
+    li {
+      font-weight: 700;
+      height: 45px;
+      margin-bottom: 45px;
+      display: block;
+    }
+  }
+}
+
+.flip2 { animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+.flip3 { animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+.flip4 { animation: flip4 10s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+.flip5 { animation: flip5 12s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+
+@keyframes flip2 {
+  0% { margin-top: -180px; }
+  5% { margin-top: -90px;  }
+  50% { margin-top: -90px; }
+  55% { margin-top: 0; }
+  99.99% { margin-top: 0; }
+  100% { margin-top: -180px; }
+}
+
+@keyframes flip3 {
+  0% { margin-top: -270px; }
+  5% { margin-top: -180px; }
+  33% { margin-top: -180px; }
+  38% { margin-top: -90px; }
+  66% { margin-top: -90px; }
+  71% { margin-top: 0; }
+  99.99% { margin-top: 0; }
+  100% { margin-top: -270px; }
+}
+
+@keyframes flip4 {
+  0% { margin-top: -360px; }
+  5% { margin-top: -270px; }
+  25% { margin-top: -270px; }
+  30% { margin-top: -180px; }
+  50% { margin-top: -180px; }
+  55% { margin-top: -90px; }
+  75% { margin-top: -90px; }
+  80% { margin-top: 0; }
+  99.99% { margin-top: 0; }
+  100% { margin-top: -360px; }
+}
+
+@keyframes flip5 {
+  0% { margin-top: -450px; }
+  5% { margin-top: -360px; }
+  20% { margin-top: -360px; }
+  25% { margin-top: -270px; }
+  40% { margin-top: -270px; }
+  45% { margin-top: -180px; }
+  60% { margin-top: -180px; }
+  65% { margin-top: -90px; }
+  80% { margin-top: -90px; }
+  85% { margin-top: 0; }
+  99.99% { margin-top: 0; }
+  100% { margin-top: -450px; }
 }
