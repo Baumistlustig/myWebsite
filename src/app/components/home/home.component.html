@@ -82,12 +82,12 @@
     <mat-card-content>
       <img
         *ngIf="getDarkmode() === '#gh-dark-mode-only'; else whitemode"
-        src="https://github-profile-trophy.vercel.app/?username=baumistlustig&theme=darkhub&column=3"
+        src="https://github-profile-trophy.vercel.app/?username=baumistlustig&theme=radical&column=3&margin-w=4&no-bg=true&no-frame=false&row=2"
         alt="trophies"
       />
       <ng-template #whitemode>
         <img
-          src="https://github-profile-trophy.vercel.app/?username=baumistlustig&theme=flat&column=3"
+          src="https://github-profile-trophy.vercel.app/?username=baumistlustig&theme=flat&column=3&margin-w=4&row=2&no-bg=true&no-frame=false"
           alt="trophies"
         />
       </ng-template>
