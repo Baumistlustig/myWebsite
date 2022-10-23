@@ -34,6 +34,10 @@ mat-card {
   padding: 20px;
 }
 
+mat-card-content {
+  margin: 0 auto;
+}
+
 .hidden {
   opacity: 0;
   filter: blur(5px);
