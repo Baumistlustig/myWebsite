@@ -1,28 +1,59 @@
 <div class="home">
-  <section class="hidden">
-    <h1>👤 About Me</h1>
-    <p>
-      Hey, I'm Johannes Höllwerth, in the Internet mainly Baumistlustig. I'm
-      doing some development in<br />
-      my free time, such as API projects with NestJS, Front-End Projects with
-      Angular or Minecraft Plugins<br />
-      with the Spigot/Paper API. Other than coding I also love sailing, cycling
-      and building computers!<br />
-    </p>
-  </section>
 
-  <section class="hidden">
-    <h1>📱 Contact</h1>
+  <div class='welcome'>
+    <h1>Johannes Höllwerth</h1>
+
+    <h2 class="wordCarousel">
+      <div>
+        <ul class="flip4">
+          <li>Software Engineer</li>
+          <li>Frontend Developer</li>
+          <li>Backend Developer</li>
+          <li>Full-Stack Developer</li>
+        </ul>
+      </div>
+    </h2>
+  </div>
+
+
+  <mat-card class="hidden">
+    <mat-card-header>
+      <mat-card-title>
+        👤 About Me
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      Hey, I'm Johannes Höllwerth, in the Internet mainly Baumistlustig. In my free-time I work on various projects,
+      mostly in the field of software development & electronics. I'm currently a student of Electrical Engineering at
+      the <a href='http://htlsaalfelden.at'>HTL Saalfelden</a>.
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="hidden">
+    <mat-card-header>
+      <mat-card-title>
+        📱 Contact
+      </mat-card-title>
+    </mat-card-header>
     <p>
       If you want to contact me, you can use my mail-address:
       <b>johannes.hoellwerth@protonmail.com</b>
     </p>
     <p>Also, you can DM me on Discord: <b>Baumistlustig#4200</b></p>
-  </section>
+  </mat-card>
 
-  <section class="hidden">
-    <h1>📊 GitHub Stats</h1>
-    <a href="https://github.com/baumistlustig/stats">
+  <mat-card class="hidden">
+    <mat-card-header>
+      <mat-card-title>
+        📊 GitHub Stats
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        These are the statistics of my <a href='https://github.com/Baumistlustig'>GitHub profile</a>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
       <img
         src="https://raw.githubusercontent.com/Baumistlustig/Baumistlustig/master/generated/overview.svg{{
           getDarkmode()
@@ -35,84 +66,105 @@
         }}"
         alt="github-languages"
       />
-    </a>
-  </section>
-  <section class="hidden">
-    <h2>🏆 Trophies</h2>
-    <img
-      *ngIf="getDarkmode() === '#gh-dark-mode-only'; else whitemode"
-      src="https://github-profile-trophy.vercel.app/?username=baumistlustig&theme=darkhub"
-      alt="trophies"
-    />
-    <ng-template #whitemode>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="hidden">
+    <mat-card-header>
+      <mat-card-title>
+        🏆 Trophies
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        These are the trophies I earned with my <a href='https://github.com/Baumistlustig'>GitHub profile</a>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
       <img
-        src="https://github-profile-trophy.vercel.app/?username=baumistlustig&theme=flat"
+        *ngIf="getDarkmode() === '#gh-dark-mode-only'; else whitemode"
+        src="https://github-profile-trophy.vercel.app/?username=baumistlustig&theme=radical&column=3&margin-w=4&no-bg=true&no-frame=false&row=2"
         alt="trophies"
       />
-    </ng-template>
-  </section>
+      <ng-template #whitemode>
+        <img
+          src="https://github-profile-trophy.vercel.app/?username=baumistlustig&theme=flat&column=3&margin-w=4&row=2&no-bg=true&no-frame=false"
+          alt="trophies"
+        />
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
 
-  <section class="hidden">
-    <h2>🖥️ Technologies</h2>
-    <p>
-      Here you can see technologies which I'm currently using/used in the past
-    </p>
-    <ul>
-      <li>
-        📱 <strong>Frontend: </strong>
-        <a href="https://angular.io/">Angular</a>,
-        <a href="https://en.wikipedia.org/wiki/Hypertext_Markup_Language"
+  <mat-card class="hidden">
+    <mat-card-header>
+      <mat-card-title>
+        🖥️ Technologies
+      </mat-card-title>
+
+      <mat-card-subtitle>Here you can see technologies which I'm currently using/used in the past</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <ul>
+        <li>
+          📱 <strong>Frontend: </strong>
+          <a href="https://angular.io/">Angular</a>,
+          <a href="https://en.wikipedia.org/wiki/Hypertext_Markup_Language"
           >HTML</a
-        >/<a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a
+          >/<a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a
         >, <a href="https://en.wikipedia.org/wiki/JavaScript">Java-</a>/<a
           href="https://www.typescriptlang.org/"
-          >TypeScript</a
+        >TypeScript</a
         >
-      </li>
-      <li>
-        ⚙ <strong>Backend: </strong> <a href="https://nestjs.com/">NestJS</a>,
-        <a href="https://expressjs.com/">ExpressJS</a>,
-        <a href="https://nodejs.org/">NodeJS</a>,
-        <a href="https://en.wikipedia.org/wiki/JavaScript">Java-</a>/<a
-          href="https://www.typescriptlang.org/"
-          >TypeScript</a
+        </li>
+        <li>
+          ⚙ <strong>Backend: </strong> <a href="https://nestjs.com/">NestJS</a>,
+          <a href="https://expressjs.com/">ExpressJS</a>,
+          <a href="https://nodejs.org/">NodeJS</a>,
+          <a href="https://www.typescriptlang.org/">TypeScript</a
         >, <a href="https://mongodb.com/">MongoDB</a>,
-        <a href="https://redis.io/">Redis</a>
-      </li>
-      <li>
-        🎮 <strong>Minecraft: </strong>
-        <a href="https://www.java.com/en/">Java</a>,
-        <a href="https://papermc.io/">PaperMC</a>,
-        <a href="https://papermc.io/downloads#Velocity">Velocity</a>
-      </li>
-      <li>
-        📟 <strong>OS &amp; Hosting: </strong>
-        <a href="https://pop.system76.com/">PopOS</a>,
-        <a href="https://ubuntu.com/download/server">Ubuntu Server</a>,
-        <a href="https://www.mongodb.com/atlas">MongoDB Atlas</a>,
-        <a href="https://linode.com/">Linode</a>
-      </li>
-      <li>
-        🧰 <strong>Tools: </strong>
-        <a href="https://www.jetbrains.com/webstorm/">Webstorm</a>,
-        <a href="https://www.jetbrains.com/idea/">IntelliJ</a>,
-        <a href="https://code.visualstudio.com/">VisualStudioCode</a>
-      </li>
-      <li>
-        💡 <strong>Other: </strong> <a href="https://python.org/">Python</a>,
-        <a href="https://github.com/">GitHub</a>,
-        <a href="https://docker.com/">Docker</a>,
-        <a href="https://git-scm.com/">Git</a>
-      </li>
-    </ul>
-  </section>
+          <a href="https://redis.io/">Redis</a>
+        </li>
+        <li>
+          🎮 <strong>Minecraft: </strong>
+          <a href="https://www.java.com/en/">Java</a>,
+          <a href="https://papermc.io/">PaperMC</a>,
+          <a href="https://papermc.io/downloads#Velocity">Velocity</a>
+        </li>
+        <li>
+          📟 <strong>OS &amp; Hosting: </strong>
+          <a href="https://pop.system76.com/">PopOS</a>,
+          <a href="https://ubuntu.com/download/server">Ubuntu Server</a>,
+          <a href="https://www.mongodb.com/atlas">MongoDB Atlas</a>,
+          <a href="https://linode.com/">Linode</a>
+        </li>
+        <li>
+          🧰 <strong>Tools: </strong>
+          <a href="https://www.jetbrains.com/webstorm/">Webstorm</a>,
+          <a href="https://www.jetbrains.com/idea/">IntelliJ</a>,
+          <a href="https://code.visualstudio.com/">VisualStudioCode</a>
+        </li>
+        <li>
+          💡 <strong>Other: </strong> <a href="https://python.org/">Python</a>,
+          <a href="https://github.com/">GitHub</a>,
+          <a href="https://docker.com/">Docker</a>,
+          <a href="https://git-scm.com/">Git</a>
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
 
-  <section class="hidden">
-    <h2>🚧 Projects</h2>
-    <p>
-      Down below, you can see some projects of mine, which I've done or that are
-      currently in development!
-    </p>
-    <a mat-raised-button color="primary" routerLink="/projects">Projects »</a>
-  </section>
+  <mat-card class="hidden">
+    <mat-card-header>
+      <mat-card-title>
+        🚧 Projects
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        Some projects of mine</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <a fxLayoutAlign='center' mat-raised-button color="primary" routerLink="/projects">Projects →</a>
+    </mat-card-actions>
+
+  </mat-card>
 </div>
