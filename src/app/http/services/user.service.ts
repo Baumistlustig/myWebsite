@@ -44,4 +44,12 @@ export class UserService {
   uploadProfileImage(formData: FormData): Observable<object> {
     return this.http.post(`${environment.domain}profile/picture`, formData);
   }
+
+  getProfile(userId: string): Observable<object> {
+    return this.http.get(`${environment.domain}profile/${userId}`);
+  }
+
+  toggleFollow(targetId: string): Observable<object> {
+    return this.http.post(`${environment.domain}profile/follow/${targetId}`, {});
+  }
 }
