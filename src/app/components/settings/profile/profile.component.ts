@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   fileName = '';
 
   formData: FormData = new FormData();
+  user: any;
 
   constructor(private readonly userService: UserService) {}
 
@@ -21,12 +22,19 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.getUserName();
   }
 
   initForm() {
     this.profileGroup = new FormGroup({
       status: new FormControl('', []),
       bio: new FormControl('', []),
+    });
+  }
+
+  getUserName(): void {
+    this.userService.getUserById(this.userId).subscribe((user: any) => {
+      this.user = user;
     });
   }
 
