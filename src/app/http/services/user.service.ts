@@ -25,8 +25,8 @@ export class UserService {
     });
   }
 
-  getUser(userId: string | null): Observable<object> {
-    return this.http.get(`${environment.domain}user/getUser/${userId}`);
+  getUserByName(username: string | null): Observable<object> {
+    return this.http.get(`${environment.domain}user/name/${username}`);
   }
 
   deleteUser(userId: string | null): Observable<object> {

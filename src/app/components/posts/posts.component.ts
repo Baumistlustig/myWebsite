@@ -60,7 +60,7 @@ export class PostsComponent implements OnInit {
   getUsers(): void {
     for (let i = 0; i < this.posts.length; i++) {
       this.userService
-        .getUser(this.posts[i].authorId)
+        .getUserById(this.posts[i].authorId)
         .subscribe((user: any) => {
           this.users.push(user);
         });

@@ -23,7 +23,7 @@ export class AccountComponent implements OnInit {
 
   getOldCredentials(): void {
     this.userService
-      .getUser(localStorage.getItem('user_id'))
+      .getUserById(localStorage.getItem('user_id') || '')
       .subscribe((result: any) => {
         this.initForm(result.username);
       });
