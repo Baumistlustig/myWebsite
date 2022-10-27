@@ -1,0 +1,38 @@
+<div class='background'>
+  <mat-card class='userprofile' fxFlexAlign='center center'>
+    <mat-card-header>
+      <mat-card-title>{{user.username}}</mat-card-title>
+      <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+
+      <img
+        class="profile-picture"
+        src="{{ domain }}profile/picture/{{ user.id }}"
+        alt="profile-picture"
+        [matTooltip]="profile.status"
+      />
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{profile.bio}}</p>
+    </mat-card-content>
+    <mat-card-actions *ngIf='userLoggedIn()'>
+      <button mat-button
+              *ngIf='!returnFollows(); else follows'
+              matBadge="{{profile.followers.length}}"
+              color='primary'
+              (click)='toggleFollow()'
+      >FOLLOW</button>
+
+      <ng-template #follows>
+        <button color='accent'
+                mat-button
+                matBadge='{{profile.followers.length}}'
+                matBadgeColor='accent'
+                (click)='toggleFollow()'
+        >UNFOLLOW</button>
+      </ng-template>
+
+      <button mat-button color='warn'>BLOCK</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

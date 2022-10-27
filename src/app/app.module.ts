@@ -41,6 +41,9 @@ import {
 } from './components/settings/danger-zone/danger-zone.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NewPostComponent } from './components/posts/new-post/new-post.component';
+import { ProfilesComponent } from './components/profiles/profiles.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,7 @@ import { NewPostComponent } from './components/posts/new-post/new-post.component
     DangerZoneComponent,
     DeleteDialog,
     NewPostComponent,
+    ProfilesComponent,
   ],
   imports: [
     FormsModule,
@@ -85,6 +89,8 @@ import { NewPostComponent } from './components/posts/new-post/new-post.component
     MatSnackBarModule,
     MatCardModule,
     MatCheckboxModule,
+    MatTooltipModule,
+    MatBadgeModule,
   ],
   providers: [
     {
