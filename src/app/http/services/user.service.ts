@@ -50,6 +50,9 @@ export class UserService {
   }
 
   toggleFollow(targetId: string): Observable<object> {
-    return this.http.post(`${environment.domain}profile/follow/${targetId}`, {});
+    return this.http.post(
+      `${environment.domain}profile/follow/${targetId}`,
+      {},
+    );
   }
 }
