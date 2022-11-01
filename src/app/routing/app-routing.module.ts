@@ -5,6 +5,7 @@ import { ProjectsComponent } from '../components/projects/projects.component';
 import { ImprintComponent } from '../components/imprint/imprint.component';
 import { PostsComponent } from '../components/posts/posts.component';
 import { SettingsComponent } from '../components/settings/settings.component';
+import { FileComponent } from '../components/file/file.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'imprint', component: ImprintComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'settings', component: SettingsComponent },
+  { path: 'file', component: FileComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

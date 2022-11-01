@@ -41,6 +41,7 @@ import {
 } from './components/settings/danger-zone/danger-zone.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NewPostComponent } from './components/posts/new-post/new-post.component';
+import { FileComponent } from './components/file/file.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { NewPostComponent } from './components/posts/new-post/new-post.component
     DangerZoneComponent,
     DeleteDialog,
     NewPostComponent,
+    FileComponent,
   ],
   imports: [
     FormsModule,
