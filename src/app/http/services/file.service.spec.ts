@@ -21,4 +21,8 @@ describe('FileService', () => {
   it('should return an array of all fileIds', () => {
     expect(service.getFiles()).toBeTruthy();
   });
+
+  it('should upload a file', () => {
+    expect(service.uploadFile(new FormData())).toBeTruthy();
+  });
 });
