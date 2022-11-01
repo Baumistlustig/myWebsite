@@ -13,4 +13,8 @@ export class FileService {
   getFiles(): Observable<string[]> {
     return this.http.get<string[]>(`${environment.domain}file`);
   }
+
+  uploadFile(formData: FormData): Observable<object> {
+    return this.http.post(`${environment.domain}file`, formData);
+  }
 }
