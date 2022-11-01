@@ -1,7 +1,9 @@
 <mat-card class='recent-files'>
   <mat-card-header>
     <mat-card-title>Recent files</mat-card-title>
-    <mat-card-subtitle>The files and pictures you recently uploaded</mat-card-subtitle>
+    <mat-card-subtitle
+      >The files and pictures you recently uploaded</mat-card-subtitle
+    >
 
     <button mat-button>
       <img
@@ -13,15 +15,17 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-list class='file'>
-      <mat-list-item *ngFor="let file of fileIds">
-        <img
-          class="file-thumbnail"
-          src="{{ domain }}file/{{ file }}"
-          alt="file-thumbnail"
-        />
-        <h4 mat-line>Filename</h4>
-        <p mat-line>Uploaded current Date</p>
+    <mat-list>
+      <mat-list-item *ngFor="let file of files" class="file">
+        <button mat-button>
+          <img
+            class="file-thumbnail"
+            src="{{ domain }}file/{{ file.id }}"
+            alt="file-thumbnail"
+          />
+        </button>
+        <h4 mat-line>{{ file.filename }}</h4>
+        <p mat-line><b>Uploaded:</b> {{ convertDate(file.uploaded) }}</p>
       </mat-list-item>
     </mat-list>
   </mat-card-content>

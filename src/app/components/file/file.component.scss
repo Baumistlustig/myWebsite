@@ -1,6 +1,6 @@
 .recent-files {
   width: 400px;
-  height: 500px;
+  min-height: 400px;
   margin: 20px auto;
 }
 
@@ -17,5 +17,5 @@
 }
 
 .file {
-  margin: 20px;
+  margin-top: 20px;
 }
