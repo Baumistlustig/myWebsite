@@ -9,12 +9,15 @@ import { FileService } from '../../http/services/file.service';
   styleUrls: ['./file.component.scss'],
 })
 export class FileComponent implements OnInit {
-  fileIds!: string[];
+  files!: any[];
+  fileName = '';
+
+  formData: FormData = new FormData();
 
   constructor(
     private readonly userService: UserService,
-    private readonly fileService: FileService
-  ) { }
+    private readonly fileService: FileService,
+  ) {}
 
   userId: string = localStorage.getItem('user_id') || '';
   user!: any;
@@ -22,7 +25,7 @@ export class FileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
-    this.getImageIds();
+    this.getImages();
   }
 
   getUser(): void {
@@ -31,10 +34,31 @@ export class FileComponent implements OnInit {
     });
   }
 
-  getImageIds(): void {
+  getImages(): void {
     this.fileService.getFiles().subscribe((files: any) => {
-      this.fileIds = files;
+      this.files = files;
     });
   }
 
+  convertDate(date: Date): string {
+    return new Date(date).toLocaleString();
+  }
+
+  userIsLoggedIn() {
+    return localStorage.getItem('user_id') !== null;
+  }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+
+    if (file) {
+      this.fileName = file.name;
+
+      this.formData.append('file', file);
+
+      this.fileService.uploadFile(this.formData).subscribe(() => {
+        this.getImages();
+      });
+    }
+  }
 }

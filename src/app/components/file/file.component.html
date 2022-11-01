@@ -1,4 +1,24 @@
-<mat-card class='recent-files'>
+<div class="upload-file" *ngIf="userIsLoggedIn()">
+
+  <input
+    type="file"
+    class="file-input"
+    (change)="onFileSelected($event)"
+    #fileUpload
+  />
+
+  <button
+    mat-fab
+    color="primary"
+    class="upload-btn"
+    (click)="fileUpload.click()"
+  >
+    <mat-icon>attach_file</mat-icon>
+  </button>
+</div>
+
+
+<mat-card class="recent-files">
   <mat-card-header>
     <mat-card-title>Recent files</mat-card-title>
     <mat-card-subtitle

@@ -19,3 +19,14 @@
 .file {
   margin-top: 20px;
 }
+
+.upload-file {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  z-index: 1;
+}
+
+.file-input {
+  display: none;
+}
