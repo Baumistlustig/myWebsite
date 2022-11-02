@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      {{ data.filename }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ convertDate(data.uploaded) }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <img class="image" src="{{ domain }}file/{{ data.id }}" alt="image" />
+  </mat-card-content>
+  <mat-card-actions>
+    <mat-dialog-actions>
+      <button mat-button color="warn" (click)="deleteFile(data.id)">
+        Delete File
+      </button>
+      <button
+        mat-button
+        color="primary"
+        matTooltip="Copy Image URL"
+        cdkCopyToClipboard="{{ domain }}file/{{ data.id }}"
+        (click)='copiedUrl()'
+      >
+        <mat-icon>content_copy</mat-icon>
+      </button>
+    </mat-dialog-actions>
+  </mat-card-actions>
+</mat-card>
