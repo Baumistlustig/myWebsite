@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../http/services/user.service';
 import { environment } from '../../../environments/environment';
 import { FileService } from '../../http/services/file.service';
+import { ImageDialogComponent } from './dialog/image-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-file',
@@ -12,6 +14,7 @@ export class FileComponent implements OnInit {
   constructor(
     private readonly userService: UserService,
     private readonly fileService: FileService,
+    private readonly dialog: MatDialog,
   ) {}
 
   files!: any[];
@@ -66,5 +69,17 @@ export class FileComponent implements OnInit {
         this.getImages();
       });
     }
+  }
+
+  openDialog(imageId: string): void {
+    const image: any = this.files.filter((image) => image.id === imageId);
+
+    const dialogRef = this.dialog.open(ImageDialogComponent, {
+      data: image[0],
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.getImages();
+    });
   }
 }

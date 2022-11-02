@@ -42,6 +42,9 @@ import {
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NewPostComponent } from './components/posts/new-post/new-post.component';
 import { FileComponent } from './components/file/file.component';
+import { ImageDialogComponent } from './components/file/dialog/image-dialog.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,7 @@ import { FileComponent } from './components/file/file.component';
     DeleteDialog,
     NewPostComponent,
     FileComponent,
+    ImageDialogComponent,
   ],
   imports: [
     FormsModule,
@@ -87,6 +91,8 @@ import { FileComponent } from './components/file/file.component';
     MatSnackBarModule,
     MatCardModule,
     MatCheckboxModule,
+    ClipboardModule,
+    MatTooltipModule,
   ],
   providers: [
     {

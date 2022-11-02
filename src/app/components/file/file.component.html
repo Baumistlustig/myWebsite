@@ -35,7 +35,7 @@
   <mat-card-content>
     <mat-list>
       <mat-list-item *ngFor="let file of recentFiles" class="file">
-        <button mat-button>
+        <button mat-button (click)="openDialog(file.id)">
           <img
             class="file-thumbnail"
             src="{{ domain }}file/{{ file.id }}"
