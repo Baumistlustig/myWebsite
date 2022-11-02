@@ -17,4 +17,8 @@ export class FileService {
   uploadFile(formData: FormData): Observable<object> {
     return this.http.post(`${environment.domain}file`, formData);
   }
+
+  deleteFile(id: string) {
+    return this.http.delete(`${environment.domain}file/${id}`);
+  }
 }
