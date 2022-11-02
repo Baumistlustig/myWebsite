@@ -1,5 +1,4 @@
 <div class="upload-file" *ngIf="userIsLoggedIn()">
-
   <input
     type="file"
     class="file-input"
@@ -16,7 +15,6 @@
     <mat-icon>attach_file</mat-icon>
   </button>
 </div>
-
 
 <mat-card class="recent-files">
   <mat-card-header>
@@ -36,7 +34,7 @@
 
   <mat-card-content>
     <mat-list>
-      <mat-list-item *ngFor="let file of files" class="file">
+      <mat-list-item *ngFor="let file of recentFiles" class="file">
         <button mat-button>
           <img
             class="file-thumbnail"
@@ -46,7 +44,9 @@
         </button>
         <h4 mat-line>{{ file.filename }}</h4>
         <p mat-line><b>Uploaded:</b> {{ convertDate(file.uploaded) }}</p>
-        <a mat-line href='{{ domain }}file/{{ file.id }}'>URL</a>
+        <a mat-line href="{{ domain }}file/{{ file.id }}" target="_blank"
+          >URL</a
+        >
       </mat-list-item>
     </mat-list>
   </mat-card-content>

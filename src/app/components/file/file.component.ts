@@ -9,15 +9,16 @@ import { FileService } from '../../http/services/file.service';
   styleUrls: ['./file.component.scss'],
 })
 export class FileComponent implements OnInit {
-  files!: any[];
-  fileName = '';
-
-  formData: FormData = new FormData();
-
   constructor(
     private readonly userService: UserService,
     private readonly fileService: FileService,
   ) {}
+
+  files!: any[];
+  recentFiles!: any[];
+  fileName = '';
+
+  formData: FormData = new FormData();
 
   userId: string = localStorage.getItem('user_id') || '';
   user!: any;
@@ -37,7 +38,12 @@ export class FileComponent implements OnInit {
   getImages(): void {
     this.fileService.getFiles().subscribe((files: any) => {
       this.files = files;
+      this.recentFiles = this.getRecentFiles();
     });
+  }
+
+  getRecentFiles() {
+    return this.files.slice().reverse().slice(0, 5);
   }
 
   convertDate(date: Date): string {
