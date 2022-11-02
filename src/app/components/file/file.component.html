@@ -16,7 +16,7 @@
   </button>
 </div>
 
-<mat-card class="recent-files">
+<mat-card class="files">
   <mat-card-header>
     <mat-card-title>Recent files</mat-card-title>
     <mat-card-subtitle
@@ -49,5 +49,43 @@
         >
       </mat-list-item>
     </mat-list>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class='files'>
+  <mat-card-header>
+    <mat-card-title>All Files</mat-card-title>
+    <mat-card-subtitle
+      >The files and pictures you have uploaded</mat-card-subtitle
+    >
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-list *ngIf='loadImages; else imageNotLoaded'>
+      <mat-list-item *ngFor="let file of files" class="file">
+        <button mat-button (click)="openDialog(file.id)">
+          <img
+            class="file-thumbnail"
+            src="{{ domain }}file/{{ file.id }}"
+            alt="file-thumbnail"
+          />
+        </button>
+        <h4 mat-line>{{ file.filename }}</h4>
+        <p mat-line><b>Uploaded:</b> {{ convertDate(file.uploaded) }}</p>
+        <a mat-line href="{{ domain }}file/{{ file.id }}" target="_blank"
+          >URL</a
+        >
+      </mat-list-item>
+    </mat-list>
+
+    <ng-template #imageNotLoaded>
+      <button mat-raised-button (click)='loadImages = true'>
+        Load all Files
+      </button>
+    </ng-template>
+
+    <ng-template #imageIsLoading>
+
+    </ng-template>
   </mat-card-content>
 </mat-card>

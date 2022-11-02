@@ -27,6 +27,8 @@ export class FileComponent implements OnInit {
   user!: any;
   domain: string = environment.domain;
 
+  loadImages: boolean = false;
+
   ngOnInit(): void {
     this.getUser();
     this.getImages();
