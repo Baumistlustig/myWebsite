@@ -25,4 +25,8 @@ describe('FileService', () => {
   it('should upload a file', () => {
     expect(service.uploadFile(new FormData())).toBeTruthy();
   });
+
+  it('should delete a file', ()=> {
+    expect(service.deleteFile('123')).toBeTruthy();
+  });
 });
