@@ -46,6 +46,7 @@
         </button>
         <h4 mat-line>{{ file.filename }}</h4>
         <p mat-line><b>Uploaded:</b> {{ convertDate(file.uploaded) }}</p>
+        <a mat-line href='{{ domain }}file/{{ file.id }}'>URL</a>
       </mat-list-item>
     </mat-list>
   </mat-card-content>
