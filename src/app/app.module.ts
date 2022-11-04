@@ -45,6 +45,7 @@ import { FileComponent } from './components/file/file.component';
 import { ImageDialogComponent } from './components/file/dialog/image-dialog.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatCheckboxModule,
     ClipboardModule,
     MatTooltipModule,
+    MatGridListModule,
   ],
   providers: [
     {

@@ -61,31 +61,16 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-list *ngIf='loadImages; else imageNotLoaded'>
-      <mat-list-item *ngFor="let file of files" class="file">
-        <button mat-button (click)="openDialog(file.id)">
+    <mat-grid-list cols='3'>
+      <mat-grid-tile *ngFor="let file of files" class="file-small" matTooltip='{{file.filename}}'>
+        <button mat-button (click)="openDialog(file.id)" class='thumbnail-button'>
           <img
-            class="file-thumbnail"
+            class="file-thumbnail-small"
             src="{{ domain }}file/{{ file.id }}"
             alt="file-thumbnail"
           />
         </button>
-        <h4 mat-line>{{ file.filename }}</h4>
-        <p mat-line><b>Uploaded:</b> {{ convertDate(file.uploaded) }}</p>
-        <a mat-line href="{{ domain }}file/{{ file.id }}" target="_blank"
-          >URL</a
-        >
-      </mat-list-item>
-    </mat-list>
-
-    <ng-template #imageNotLoaded>
-      <button mat-raised-button (click)='loadImages = true'>
-        Load all Files
-      </button>
-    </ng-template>
-
-    <ng-template #imageIsLoading>
-
-    </ng-template>
+      </mat-grid-tile>
+    </mat-grid-list>
   </mat-card-content>
 </mat-card>
