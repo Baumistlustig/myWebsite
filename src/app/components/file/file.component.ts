@@ -4,6 +4,8 @@ import { environment } from '../../../environments/environment';
 import { FileService } from '../../http/services/file.service';
 import { ImageDialogComponent } from './dialog/image-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-file',
@@ -15,6 +17,7 @@ export class FileComponent implements OnInit {
     private readonly userService: UserService,
     private readonly fileService: FileService,
     private readonly dialog: MatDialog,
+    private readonly snackbar: MatSnackBar,
   ) {}
 
   files!: any[];
@@ -68,6 +71,20 @@ export class FileComponent implements OnInit {
 
       this.fileService.uploadFile(this.formData).subscribe(() => {
         this.getImages();
+        this.snackbar.open('File uploaded!', '', {
+          duration: 3000,
+        });
+      }, (e: HttpErrorResponse) => {
+        if (e.status === 400 && e.error.message === 'File too large!') {
+          this.snackbar.open('File too large!', '', {
+            duration: 3000,
+          });
+          return;
+        }
+
+        this.snackbar.open('Something went wrong!', '', {
+          duration: 3000,
+        });
       });
     }
   }
