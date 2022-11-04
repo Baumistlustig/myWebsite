@@ -7,6 +7,7 @@
   />
 
   <button
+    *ngIf='!fileName; else fileSelected'
     mat-fab
     color="primary"
     class="upload-btn"
@@ -14,6 +15,10 @@
   >
     <mat-icon>attach_file</mat-icon>
   </button>
+
+  <ng-template #fileSelected>
+    <mat-spinner></mat-spinner>
+  </ng-template>
 </div>
 
 <mat-card class="files">

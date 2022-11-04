@@ -46,6 +46,7 @@ import { ImageDialogComponent } from './components/file/dialog/image-dialog.comp
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     ClipboardModule,
     MatTooltipModule,
     MatGridListModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {

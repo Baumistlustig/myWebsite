@@ -74,17 +74,23 @@ export class FileComponent implements OnInit {
         this.snackbar.open('File uploaded!', '', {
           duration: 3000,
         });
+
+        this.fileName = '';
       }, (e: HttpErrorResponse) => {
         if (e.status === 400 && e.error.message === 'File too large!') {
           this.snackbar.open('File too large!', '', {
             duration: 3000,
           });
+          this.fileName = '';
+
           return;
         }
 
         this.snackbar.open('Something went wrong!', '', {
           duration: 3000,
         });
+
+        this.fileName = '';
       });
     }
   }
