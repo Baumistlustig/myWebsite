@@ -69,29 +69,32 @@ export class FileComponent implements OnInit {
 
       this.formData.append('file', file);
 
-      this.fileService.uploadFile(this.formData).subscribe(() => {
-        this.getImages();
-        this.snackbar.open('File uploaded!', '', {
-          duration: 3000,
-        });
-
-        this.fileName = '';
-      }, (e: HttpErrorResponse) => {
-        if (e.status === 400 && e.error.message === 'File too large!') {
-          this.snackbar.open('File too large!', '', {
+      this.fileService.uploadFile(this.formData).subscribe(
+        () => {
+          this.getImages();
+          this.snackbar.open('File uploaded!', '', {
             duration: 3000,
           });
+
           this.fileName = '';
+        },
+        (e: HttpErrorResponse) => {
+          if (e.status === 400 && e.error.message === 'File too large!') {
+            this.snackbar.open('File too large!', '', {
+              duration: 3000,
+            });
+            this.fileName = '';
 
-          return;
-        }
+            return;
+          }
 
-        this.snackbar.open('Something went wrong!', '', {
-          duration: 3000,
-        });
+          this.snackbar.open('Something went wrong!', '', {
+            duration: 3000,
+          });
 
-        this.fileName = '';
-      });
+          this.fileName = '';
+        },
+      );
     }
   }
 

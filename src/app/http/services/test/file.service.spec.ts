@@ -9,7 +9,7 @@ describe('FileService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      providers: [FileService]
+      providers: [FileService],
     });
     service = TestBed.inject(FileService);
   });
@@ -26,7 +26,7 @@ describe('FileService', () => {
     expect(service.uploadFile(new FormData())).toBeTruthy();
   });
 
-  it('should delete a file', ()=> {
+  it('should delete a file', () => {
     expect(service.deleteFile('123')).toBeTruthy();
   });
 });
