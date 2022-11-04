@@ -21,7 +21,7 @@
         color="primary"
         matTooltip="Copy Image URL"
         cdkCopyToClipboard="{{ domain }}file/{{ data.id }}"
-        (click)='copiedUrl()'
+        (click)="copiedUrl()"
       >
         <mat-icon>content_copy</mat-icon>
       </button>

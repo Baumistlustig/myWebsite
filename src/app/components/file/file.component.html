@@ -52,18 +52,35 @@
   </mat-card-content>
 </mat-card>
 
-<mat-card class='files'>
+<mat-card class="files">
   <mat-card-header>
     <mat-card-title>All Files</mat-card-title>
-    <mat-card-subtitle
-      >The files and pictures you have uploaded</mat-card-subtitle
-    >
+    <mat-card-subtitle>The files you have uploaded</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
-    <mat-grid-list cols='3'>
-      <mat-grid-tile *ngFor="let file of files" class="file-small" matTooltip='{{file.filename}}'>
-        <button mat-button (click)="openDialog(file.id)" class='thumbnail-button'>
+    <mat-form-field>
+      <input
+        type="tel"
+        matInput
+        placeholder="Search"
+        name="search"
+        [(ngModel)]="search"
+      />
+      <button matSuffix mat-button (click)='searchFiles()'><mat-icon >search</mat-icon></button>
+    </mat-form-field>
+
+    <mat-grid-list cols="3">
+      <mat-grid-tile
+        *ngFor="let file of searchFiles()"
+        class="file-small"
+        matTooltip="{{ file.filename }}"
+      >
+        <button
+          mat-button
+          (click)="openDialog(file.id)"
+          class="thumbnail-button"
+        >
           <img
             class="file-thumbnail-small"
             src="{{ domain }}file/{{ file.id }}"

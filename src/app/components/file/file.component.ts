@@ -26,8 +26,7 @@ export class FileComponent implements OnInit {
   userId: string = localStorage.getItem('user_id') || '';
   user!: any;
   domain: string = environment.domain;
-
-  loadImages: boolean = false;
+  search!: string;
 
   ngOnInit(): void {
     this.getUser();
@@ -71,6 +70,16 @@ export class FileComponent implements OnInit {
         this.getImages();
       });
     }
+  }
+
+  searchFiles(): any {
+    if (this.search) {
+      return this.files.filter((file) => {
+        return file.filename.toLowerCase().includes(this.search.toLowerCase());
+      });
+    }
+
+    return this.files;
   }
 
   openDialog(imageId: string): void {
