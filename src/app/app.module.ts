@@ -41,6 +41,13 @@ import {
 } from './components/settings/danger-zone/danger-zone.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NewPostComponent } from './components/posts/new-post/new-post.component';
+import { FileComponent } from './components/file/file.component';
+import { ImageDialogComponent } from './components/file/dialog/image-dialog.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ProfilesComponent } from './components/profiles/profiles.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -63,6 +70,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     DangerZoneComponent,
     DeleteDialog,
     NewPostComponent,
+    FileComponent,
+    ImageDialogComponent,
     ProfilesComponent,
   ],
   imports: [
@@ -89,6 +98,11 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatSnackBarModule,
     MatCardModule,
     MatCheckboxModule,
+    ClipboardModule,
+    MatTooltipModule,
+    MatGridListModule,
+    MatProgressSpinnerModule,
+    MatButtonToggleModule,
     MatTooltipModule,
     MatBadgeModule,
   ],

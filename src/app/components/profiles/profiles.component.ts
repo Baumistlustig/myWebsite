@@ -25,10 +25,12 @@ export class ProfilesComponent implements OnInit {
   }
 
   getUser(): void {
-    this.userService.getUserByName(this.router.url.split('/')[2]).subscribe((user: any) => {
-      this.user = user;
-      this.getUserProfile(user.id);
-    });
+    this.userService
+      .getUserByName(this.router.url.split('/')[2])
+      .subscribe((user: any) => {
+        this.user = user;
+        this.getUserProfile(user.id);
+      });
   }
 
   getUserProfile(userId: string): void {
@@ -42,7 +44,7 @@ export class ProfilesComponent implements OnInit {
   }
 
   returnFollows(): boolean {
-    return this.profile.followers.includes(this.user.id)
+    return this.profile.followers.includes(this.user.id);
   }
 
   toggleFollow(): void {

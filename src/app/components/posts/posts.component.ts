@@ -87,11 +87,11 @@ export class PostsComponent implements OnInit {
   }
 
   userIsAuthor(authorId: string): boolean {
-    return authorId === localStorage.getItem('user_id');
+    return authorId === this.userId;
   }
 
-  deletePost(post_id: string): void {
-    this.postService.deletePost(post_id).subscribe(() => {
+  deletePost(postId: string): void {
+    this.postService.deletePost(postId).subscribe(() => {
       this.getPosts();
       this.snackbar.open('Post deleted!', '', {
         duration: 3000,
@@ -101,25 +101,17 @@ export class PostsComponent implements OnInit {
 
   //Voting functions
   voteUp = (i: number) => {
-    if (
-      this.posts[i].dislikedBy.includes(localStorage.getItem('user_id') || '')
-    ) {
+    if (this.posts[i].dislikedBy.includes(this.userId)) {
       //remove element
-      const userIndex = this.posts[i].dislikedBy.indexOf(
-        localStorage.getItem('user_id') || '',
-      );
+      const userIndex = this.posts[i].dislikedBy.indexOf(this.userId);
       this.posts[i].dislikedBy.splice(userIndex, 1);
     }
-    if (
-      !this.posts[i].likedBy.includes(localStorage.getItem('user_id') || '')
-    ) {
+    if (!this.posts[i].likedBy.includes(this.userId)) {
       // append element
-      this.posts[i].likedBy.push(localStorage.getItem('user_id') || '');
+      this.posts[i].likedBy.push(this.userId);
     } else {
       //remove element
-      const userIndex = this.posts[i].likedBy.indexOf(
-        localStorage.getItem('user_id') || '',
-      );
+      const userIndex = this.posts[i].likedBy.indexOf(this.userId);
       this.posts[i].likedBy.splice(userIndex, 1);
     }
 
@@ -127,23 +119,17 @@ export class PostsComponent implements OnInit {
   };
 
   voteDown = (i: number) => {
-    if (this.posts[i].likedBy.includes(localStorage.getItem('user_id') || '')) {
+    if (this.posts[i].likedBy.includes(this.userId)) {
       //remove element
-      const userIndex = this.posts[i].likedBy.indexOf(
-        localStorage.getItem('user_id') || '',
-      );
+      const userIndex = this.posts[i].likedBy.indexOf(this.userId);
       this.posts[i].likedBy.splice(userIndex, 1);
     }
-    if (
-      !this.posts[i].dislikedBy.includes(localStorage.getItem('user_id') || '')
-    ) {
+    if (!this.posts[i].dislikedBy.includes(this.userId)) {
       // append element
-      this.posts[i].dislikedBy.push(localStorage.getItem('user_id') || '');
+      this.posts[i].dislikedBy.push(this.userId);
     } else {
       //remove element
-      const userIndex = this.posts[i].dislikedBy.indexOf(
-        localStorage.getItem('user_id') || '',
-      );
+      const userIndex = this.posts[i].dislikedBy.indexOf(this.userId);
       this.posts[i].dislikedBy.splice(userIndex, 1);
     }
 
@@ -167,6 +153,6 @@ export class PostsComponent implements OnInit {
   }
 
   userIsLoggedIn(): boolean {
-    return !!localStorage.getItem('user_id');
+    return !!this.userId;
   }
 }

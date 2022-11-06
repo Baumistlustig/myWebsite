@@ -1,0 +1,51 @@
+.files {
+  width: 400px;
+  margin: 20px auto;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.file-thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+}
+
+.file {
+  margin-top: 20px;
+}
+
+.upload-file {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  z-index: 1;
+}
+
+.file-input {
+  display: none;
+}
+
+a {
+  color: #329ccd;
+}
+
+.file-thumbnail-small {
+  height: 75px;
+  width: 75px;
+  border-radius: 10%;
+}
+
+.thumbnail-button {
+  padding: 10px;
+}
+
+.sort {
+  top: 2%;
+  right: 2%;
+  position: absolute;
+}
