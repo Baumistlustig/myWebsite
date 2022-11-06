@@ -124,7 +124,9 @@ export class FileComponent implements OnInit {
 
   sortFiles(type: boolean): void {
     if (type) {
-      this.files = this.files.sort((a, b) => a.filename.localeCompare(b.filename))
+      this.files = this.files.sort((a, b) =>
+        a.filename.localeCompare(b.filename),
+      );
 
       return;
     }
