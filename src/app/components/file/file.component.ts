@@ -72,10 +72,19 @@ export class FileComponent implements OnInit {
       this.formData.append('file', file);
 
       this.fileService.uploadFile(this.formData).subscribe(
-        () => {
+        (result: any) => {
           this.getImages();
-          this.snackbar.open('File uploaded!', '', {
+          const snackBar = this.snackbar.open('File uploaded!', 'Delete', {
             duration: 3000,
+          });
+
+          snackBar.onAction().subscribe(() => {
+            this.fileService.deleteFile(result.new).subscribe(() => {
+              this.snackbar.open('File deleted!', '', {
+                duration: 3000,
+              });
+              this.getImages();
+            });
           });
 
           this.fileName = '';
