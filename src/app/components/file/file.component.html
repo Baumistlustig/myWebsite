@@ -93,11 +93,11 @@
       <mat-grid-tile
         *ngFor="let file of searchFiles()"
         class="file-small"
-        matTooltip="{{ file.filename }}"
       >
         <button
           mat-button
           (click)="openDialog(file.id)"
+          matTooltip="{{ file.filename }}"
           class="thumbnail-button"
         >
           <img
