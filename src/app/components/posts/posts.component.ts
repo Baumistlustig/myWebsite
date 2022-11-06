@@ -8,6 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NewPostComponent } from './new-post/new-post.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -20,6 +21,7 @@ export class PostsComponent implements OnInit {
     private readonly userService: UserService,
     private readonly snackbar: MatSnackBar,
     private readonly dialog: MatDialog,
+    public readonly router: Router,
   ) {}
 
   postGroup!: FormGroup;
@@ -60,7 +62,7 @@ export class PostsComponent implements OnInit {
   getUsers(): void {
     for (let i = 0; i < this.posts.length; i++) {
       this.userService
-        .getUser(this.posts[i].authorId)
+        .getUserById(this.posts[i].authorId)
         .subscribe((user: any) => {
           this.users.push(user);
         });

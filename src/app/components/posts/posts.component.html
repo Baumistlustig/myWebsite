@@ -21,7 +21,10 @@
 
       <span fxFlex></span>
 
-      <button mat-button>
+      <button
+        mat-button
+        (click)="router.navigate(['profiles/' + users[i].username])"
+      >
         <span class="profile-name">{{ users[i].username }}</span>
         <img
           class="profile-picture"

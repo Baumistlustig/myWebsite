@@ -48,6 +48,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { ProfilesComponent } from './components/profiles/profiles.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     NewPostComponent,
     FileComponent,
     ImageDialogComponent,
+    ProfilesComponent,
   ],
   imports: [
     FormsModule,
@@ -99,6 +103,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatGridListModule,
     MatProgressSpinnerModule,
     MatButtonToggleModule,
+    MatTooltipModule,
+    MatBadgeModule,
   ],
   providers: [
     {
