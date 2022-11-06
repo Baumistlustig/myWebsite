@@ -43,13 +43,13 @@
         <button mat-button (click)="openDialog(file.id)">
           <img
             class="file-thumbnail"
-            src="{{ domain }}file/{{ file.id }}"
+            src="{{ domain }}file/image/{{ file.id }}"
             alt="file-thumbnail"
           />
         </button>
         <h4 mat-line>{{ file.filename }}</h4>
         <p mat-line><b>Uploaded:</b> {{ convertDate(file.uploaded) }}</p>
-        <a mat-line href="{{ domain }}file/{{ file.id }}" target="_blank"
+        <a mat-line href="{{ domain }}file/image/{{ file.id }}" target="_blank"
           >URL</a
         >
       </mat-list-item>
@@ -92,7 +92,7 @@
         >
           <img
             class="file-thumbnail-small"
-            src="{{ domain }}file/{{ file.id }}"
+            src="{{ domain }}file/image/{{ file.id }}"
             alt="file-thumbnail"
           />
         </button>
