@@ -74,6 +74,11 @@
       />
     </mat-form-field>
 
+    <mat-button-toggle-group class='sort'>
+      <mat-button-toggle (click)='sortFiles(true)' matTooltip='Sort via name' value="name"><mat-icon>sort</mat-icon></mat-button-toggle>
+      <mat-button-toggle (click)='sortFiles(false)' matTooltip='Sort via date' value="date"><mat-icon>calendar_month</mat-icon></mat-button-toggle>
+    </mat-button-toggle-group>
+
     <mat-grid-list cols="3">
       <mat-grid-tile
         *ngFor="let file of searchFiles()"

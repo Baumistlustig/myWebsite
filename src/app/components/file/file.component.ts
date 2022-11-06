@@ -6,6 +6,7 @@ import { ImageDialogComponent } from './dialog/image-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-file',
@@ -30,6 +31,7 @@ export class FileComponent implements OnInit {
   user!: any;
   domain: string = environment.domain;
   search!: string;
+  sort!: FormControl;
 
   ngOnInit(): void {
     this.getUser();
@@ -118,5 +120,20 @@ export class FileComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {
       this.getImages();
     });
+  }
+
+  sortFiles(type: boolean): void {
+    if (type) {
+      this.files = this.files.sort((a, b) => a.filename.localeCompare(b.filename))
+
+      return;
+    }
+
+    this.files = this.files.sort((a, b) => {
+      const dateA = new Date(a.uploaded).getTime();
+      const dateB = new Date(b.uploaded).getTime();
+      return dateA > dateB ? 1 : -1;
+    });
+    this.files.reverse();
   }
 }
