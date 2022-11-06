@@ -13,9 +13,14 @@
   </mat-card-content>
   <mat-card-actions>
     <mat-dialog-actions>
+      <a mat-button color="primary" href='{{domain}}file/{{data.id}}' download>
+        Download File
+      </a>
+
       <button mat-button color="warn" (click)="deleteFile(data.id)">
         Delete File
       </button>
+
       <button
         mat-button
         color="primary"
