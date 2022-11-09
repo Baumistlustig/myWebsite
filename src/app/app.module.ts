@@ -49,8 +49,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ProfilesComponent } from './components/profiles/profiles.component';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatBadgeModule } from '@angular/material/badge';
+import { CommentsComponent } from './components/posts/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +73,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     FileComponent,
     ImageDialogComponent,
     ProfilesComponent,
+    CommentsComponent,
   ],
   imports: [
     FormsModule,
