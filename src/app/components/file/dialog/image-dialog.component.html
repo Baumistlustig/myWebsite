@@ -13,14 +13,24 @@
   </mat-card-content>
   <mat-card-actions>
     <mat-dialog-actions>
+      <a
+        mat-button
+        color="primary"
+        href="{{ domain }}file/{{ data.id }}"
+        download
+      >
+        Download File
+      </a>
+
       <button mat-button color="warn" (click)="deleteFile(data.id)">
         Delete File
       </button>
+
       <button
         mat-button
         color="primary"
         matTooltip="Copy Image URL"
-        cdkCopyToClipboard="{{ domain }}file/{{ data.id }}"
+        cdkCopyToClipboard="{{ domain }}file/image/{{ data.id }}"
         (click)="copiedUrl()"
       >
         <mat-icon>content_copy</mat-icon>
