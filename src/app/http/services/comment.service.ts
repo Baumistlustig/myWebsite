@@ -13,4 +13,8 @@ export class CommentService {
   getComment(commentId: string): Observable<any> {
     return this.http.get(`${environment.domain}comment/${commentId}`);
   }
+
+  deleteComment(commentId: string): Observable<any> {
+    return this.http.delete(`${environment.domain}comment/${commentId}`);
+  }
 }
