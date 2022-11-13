@@ -51,6 +51,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ProfilesComponent } from './components/profiles/profiles.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { CommentsComponent } from './components/posts/comments/comments.component';
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
   declarations: [
@@ -106,6 +107,7 @@ import { CommentsComponent } from './components/posts/comments/comments.componen
     MatButtonToggleModule,
     MatTooltipModule,
     MatBadgeModule,
+    MatTreeModule,
   ],
   providers: [
     {
