@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
+import { Post } from '../../models/posts.models';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,9 @@ export class CommentService {
 
   deleteComment(commentId: string): Observable<any> {
     return this.http.delete(`${environment.domain}comment/${commentId}`);
+  }
+
+  editComment(comment: Post): Observable<any> {
+    return this.http.patch(`${environment.domain}comment/`, comment);
   }
 }
