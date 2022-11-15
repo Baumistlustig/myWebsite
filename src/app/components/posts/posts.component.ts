@@ -39,6 +39,7 @@ export class PostsComponent implements OnInit {
   edit: string = 'Edit';
 
   readingComments: boolean | string = false;
+  writingComment: boolean | string = false;
 
   ngOnInit(): void {
     this.getPosts();

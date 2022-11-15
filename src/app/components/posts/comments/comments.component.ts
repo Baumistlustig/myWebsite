@@ -26,6 +26,7 @@ export class CommentsComponent implements OnInit {
   save: string = 'Save';
   edit: string = 'Edit';
   readingComments: boolean | string = false;
+  writingComment: boolean | string = false;
 
   constructor(
     private readonly commentService: CommentService,

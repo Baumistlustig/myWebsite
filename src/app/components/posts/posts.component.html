@@ -50,6 +50,8 @@
         {{ post.content }}
       </ng-template>
 
+      <app-new-comment *ngIf='writingComment === post._id'></app-new-comment>
+
       <div *ngFor="let comment of post.comments; let i = index" class="comment">
         <app-comments
           *ngIf="readingComments"
@@ -98,6 +100,16 @@
         [color]="readingComments === post._id ? 'accent' : 'primary'"
       >
         <mat-icon>comment</mat-icon>
+      </button>
+
+      <span fxFlex></span>
+
+      <button
+        mat-icon-button
+        color='accent'
+        (click)='writingComment === post._id ? writingComment = false : writingComment = post._id'
+      >
+        <mat-icon>add</mat-icon>
       </button>
 
       <span fxFlex></span>
