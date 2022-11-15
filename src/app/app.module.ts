@@ -52,6 +52,7 @@ import { ProfilesComponent } from './components/profiles/profiles.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { CommentsComponent } from './components/posts/comments/comments.component';
 import { MatTreeModule } from '@angular/material/tree';
+import { NewCommentComponent } from './components/posts/comments/new-comment/new-comment.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { MatTreeModule } from '@angular/material/tree';
     ImageDialogComponent,
     ProfilesComponent,
     CommentsComponent,
+    NewCommentComponent,
   ],
   imports: [
     FormsModule,
