@@ -49,6 +49,14 @@
       <ng-template #content>
         {{ post.content }}
       </ng-template>
+
+      <div *ngFor="let comment of post.comments; let i = index" class="comment">
+        <app-comments
+          *ngIf="readingComments"
+          [commentId]="comment"
+          [parentPost]="post"
+        ></app-comments>
+      </div>
     </mat-card-content>
 
     <mat-card-actions class="postFooter">

@@ -1,96 +1,109 @@
-<div *ngFor='let comment of comments; let i = index' class='comment'>
-  <mat-card *ngIf='parentPost._id === comment.parent'>
-    <mat-card-header>
-      <mat-card-title>
-        <form *ngIf="editing === comment._id; else title" [formGroup]="commentGroup">
-          <mat-form-field>
-            <input matInput formControlName="title" placeholder="Title" />
-          </mat-form-field>
-        </form>
-        <ng-template #title>
-          {{ comment.title }}
-        </ng-template>
-      </mat-card-title>
-      <mat-card-subtitle>{{ convertDate(comment.created) }}</mat-card-subtitle>
+<!-- *ngIf='parentPost._id === comment.parent'-->
 
-      <span fxFlex></span>
+<mat-card *ngIf="comment">
+  <mat-card-header class="commentHeader">
+    <mat-card-title>
+      <form
+        *ngIf="editing === comment._id; else title"
+        [formGroup]="commentGroup"
+      >
+        <mat-form-field>
+          <input matInput formControlName="title" placeholder="Title" />
+        </mat-form-field>
+      </form>
+      <ng-template #title>
+        {{ comment.title }}
+      </ng-template>
+    </mat-card-title>
+
+    <span fxFlex></span>
+
+    <button
+      mat-button
+      (click)="router.navigate(['profiles/' + comment.authorId])"
+    >
+      <img
+        class="profile-picture"
+        src="{{ domain }}profile/picture/{{ comment.authorId }}"
+        alt="profile-picture"
+      />
+    </button>
+  </mat-card-header>
+
+  <mat-card-content class="postContent">
+    <form
+      *ngIf="editing === comment._id; else content"
+      [formGroup]="commentGroup"
+    >
+      <mat-form-field>
+        <textarea
+          matInput
+          name="content"
+          placeholder="Content"
+          formControlName="content"
+        ></textarea>
+      </mat-form-field>
+    </form>
+
+    <ng-template #content>
+      {{ comment.content }}
+    </ng-template>
+  </mat-card-content>
+
+  <mat-card-actions class="postFooter">
+    <!--<button
+      *ngIf="userIsAuthor(comment.authorId); else notLoggedIn1"
+      mat-icon-button
+      color="{{ returnVoted(comment, true) }}"
+      (click)="voteUp(i)"
+    >
+      <mat-icon>thumb_up</mat-icon>
+    </button>
+    {{ comment.likedBy.length }}
+    <button
+      *ngIf="userIsAuthor(comment.authorId); else notLoggedIn2"
+      mat-icon-button
+      color="{{ returnVoted(comment, false) }}"
+      (click)="voteDown(i)"
+    >
+      <mat-icon>thumb_down</mat-icon>
+    </button>
+    {{ comment.dislikedBy.length }}-->
+
+    <ng-template #notLoggedIn1>
+      <button mat-icon-button>
+        <mat-icon>thumb_up</mat-icon>
+      </button>
+    </ng-template>
+
+    <ng-template #notLoggedIn2>
+      <button mat-icon-button>
+        <mat-icon>thumb_down</mat-icon>
+      </button>
+    </ng-template>
+
+    <span fxFlex></span>
+    <div *ngIf="userIsAuthor(comment.authorId)">
+      <button
+        mat-button
+        color="warn"
+        *ngIf="editing === comment._id"
+        (click)="deleteComment(comment._id)"
+      >
+        <mat-icon>delete</mat-icon>
+        Delete
+      </button>
 
       <button
         mat-button
-        (click)="router.navigate(['profiles/' + users[i].username])"
+        (click)="
+          editing === comment._id ? saveComment(comment) : initForm(comment)
+        "
+        color="{{ editing === comment._id ? 'primary' : 'none' }}"
       >
-        <span class="profile-name">{{ users[i].username }}</span>
-        <img
-          class="profile-picture"
-          src="{{ domain }}profile/picture/{{ comment.authorId }}"
-          alt="profile-picture"
-        />
+        <mat-icon>edit</mat-icon>
+        {{ editing === comment._id ? save : edit }}
       </button>
-    </mat-card-header>
-
-    <mat-card-content class="postContent">
-      <form *ngIf="editing === comment._id; else content" [formGroup]="commentGroup">
-        <mat-form-field>
-          <textarea
-            matInput
-            name="content"
-            placeholder="Content"
-            formControlName="content"
-          ></textarea>
-        </mat-form-field>
-      </form>
-
-      <ng-template #content>
-        {{ comment.content }}
-      </ng-template>
-    </mat-card-content>
-
-    <mat-card-actions class="postFooter">
-      <!--<button
-        *ngIf="userIsAuthor(comment.authorId); else notLoggedIn1"
-        mat-icon-button
-        color="{{ returnVoted(comment, true) }}"
-        (click)="voteUp(i)"
-      >
-        <mat-icon>thumb_up</mat-icon>
-      </button>
-      {{ comment.likedBy.length }}
-      <button
-        *ngIf="userIsAuthor(comment.authorId); else notLoggedIn2"
-        mat-icon-button
-        color="{{ returnVoted(comment, false) }}"
-        (click)="voteDown(i)"
-      >
-        <mat-icon>thumb_down</mat-icon>
-      </button>
-      {{ comment.dislikedBy.length }}-->
-
-      <ng-template #notLoggedIn1>
-        <button mat-icon-button>
-          <mat-icon>thumb_up</mat-icon>
-        </button>
-      </ng-template>
-
-      <ng-template #notLoggedIn2>
-        <button mat-icon-button>
-          <mat-icon>thumb_down</mat-icon>
-        </button>
-      </ng-template>
-
-      <span fxFlex></span>
-      <div *ngIf="userIsAuthor(comment.authorId)">
-        <button
-          mat-button
-          color="warn"
-          *ngIf="editing === comment._id"
-          (click)="deleteComment(comment._id)"
-        >
-          <mat-icon>delete</mat-icon>
-          Delete
-        </button>
-
-        
-      </div>
-    </mat-card-actions>
-  </mat-card>
-</div>
+    </div>
+  </mat-card-actions>
+</mat-card>
