@@ -38,6 +38,8 @@ export class PostsComponent implements OnInit {
   save: string = 'Save';
   edit: string = 'Edit';
 
+  readingComments: boolean | string = false;
+
   ngOnInit(): void {
     this.getPosts();
   }
@@ -154,5 +156,14 @@ export class PostsComponent implements OnInit {
 
   userIsLoggedIn(): boolean {
     return !!this.userId;
+  }
+
+  toggleComments(post: Post) {
+    if (this.readingComments === post._id) {
+      this.readingComments = false;
+      return;
+
+    }
+    this.readingComments = post._id;
   }
 }
