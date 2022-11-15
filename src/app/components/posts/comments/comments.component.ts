@@ -11,14 +11,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.scss']
+  styleUrls: ['./comments.component.scss'],
 })
 export class CommentsComponent implements OnInit {
-
-  @Input() commentIds!: string[] | null;
+  @Input() commentId!: string | null;
   @Input() parentPost!: any;
 
-  comments: any[] = [];
+  comment!: any;
   editing: boolean | string = false;
   commentGroup!: FormGroup;
   domain: string = environment.domain;
@@ -32,10 +31,10 @@ export class CommentsComponent implements OnInit {
     public readonly router: Router,
     private readonly userService: UserService,
     private readonly snackBar: MatSnackBar,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.getComments(this.commentIds);
+    this.getComment(this.commentId || '');
   }
 
   initForm(comment: Post): void {
@@ -49,36 +48,8 @@ export class CommentsComponent implements OnInit {
 
   getComment(commentId: string): void {
     this.commentService.getComment(commentId).subscribe((comment) => {
-
-      if (comment.comments) {
-        this.getComments(comment.comments);
-      }
-
-      this.comments.push(comment);
+      this.comment = comment;
     });
-  }
-
-  getComments(commentIds: string[] | null): void {
-    if (!commentIds) { return; }
-    for (let i = 0; i < commentIds.length; i++) {
-      this.getComment(commentIds[i]);
-    }
-
-    this.getUsers();
-  }
-
-  convertDate(date: Date): string {
-    return new Date(date).toLocaleString();
-  }
-
-  getUsers(): void {
-    for (let i = 0; i < this.comments.length; i++) {
-      this.userService
-        .getUserById(this.comments[i].authorId)
-        .subscribe((user: any) => {
-          this.users.push(user);
-        });
-    }
   }
 
   userIsAuthor(authorId: string): boolean {
@@ -88,12 +59,22 @@ export class CommentsComponent implements OnInit {
   deleteComment(commentId: any) {
     this.commentService.deleteComment(commentId).subscribe(() => {
       this.editing = false;
-      this.getComments(this.commentIds);
 
       this.snackBar.open('Comment deleted!', '', {
         duration: 3000,
       });
     });
+  }
 
+  saveComment(comment: Post) {
+    comment.title = this.commentGroup.value.title;
+    comment.content = this.commentGroup.value.content;
+
+    this.commentService.editComment(comment).subscribe(() => {
+      this.snackBar.open('Comment saved!', '', {
+        duration: 3000,
+      });
+    });
+    this.editing = false;
   }
 }
