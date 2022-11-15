@@ -91,7 +91,7 @@
     </ng-template>
 
     <button
-      *ngIf='comment.comments && comment.comments.length > 0'
+      *ngIf='comment.comments && comment.comments[0] != null'
       mat-icon-button
       (click)="toggleComments(comment)"
       [color]="readingComments === comment._id ? 'accent' : 'primary'"

@@ -93,11 +93,13 @@
 
       <button
         mat-icon-button
+        *ngIf='post.comments && post.comments[0] != null'
         (click)="toggleComments(post)"
         [color]="readingComments === post._id ? 'accent' : 'primary'"
       >
         <mat-icon>comment</mat-icon>
       </button>
+
       <span fxFlex></span>
       <div *ngIf="userIsAuthor(post.authorId)">
         <button
