@@ -38,6 +38,8 @@ export class PostsComponent implements OnInit {
   save: string = 'Save';
   edit: string = 'Edit';
 
+  readingComments: boolean | string = false;
+
   ngOnInit(): void {
     this.getPosts();
   }
