@@ -15,9 +15,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CommentsComponent implements OnInit {
   @Input() commentId!: string | null;
-  @Input() parentPost!: any;
+  @Input() parentPost!: string;
 
-  comment!: any;
+  comment!: Post;
   editing: boolean | string = false;
   commentGroup!: FormGroup;
   domain: string = environment.domain;
@@ -25,6 +25,7 @@ export class CommentsComponent implements OnInit {
   users: User[] = [];
   save: string = 'Save';
   edit: string = 'Edit';
+  readingComments: boolean | string = false;
 
   constructor(
     private readonly commentService: CommentService,
@@ -56,7 +57,7 @@ export class CommentsComponent implements OnInit {
     return authorId === localStorage.getItem('user_id');
   }
 
-  deleteComment(commentId: any) {
+  deleteComment(commentId: string) {
     this.commentService.deleteComment(commentId).subscribe(() => {
       this.editing = false;
 
@@ -76,5 +77,14 @@ export class CommentsComponent implements OnInit {
       });
     });
     this.editing = false;
+  }
+
+  toggleComments(comment: Post) {
+    if (this.readingComments === comment._id) {
+      this.readingComments = false;
+      return;
+
+    }
+    this.readingComments = comment._id;
   }
 }

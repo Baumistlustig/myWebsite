@@ -54,7 +54,7 @@
         <app-comments
           *ngIf="readingComments"
           [commentId]="comment"
-          [parentPost]="post"
+          [parentPost]="post._id"
         ></app-comments>
       </div>
     </mat-card-content>

@@ -48,6 +48,14 @@
     <ng-template #content>
       {{ comment.content }}
     </ng-template>
+
+    <div *ngFor="let commentId of comment.comments; let i = index" class="comment">
+      <app-comments
+        *ngIf="readingComments"
+        [commentId]="commentId"
+        [parentPost]="commentId"
+      ></app-comments>
+    </div>
   </mat-card-content>
 
   <mat-card-actions class="postFooter">
@@ -81,6 +89,15 @@
         <mat-icon>thumb_down</mat-icon>
       </button>
     </ng-template>
+
+    <button
+      *ngIf='comment.comments && comment.comments.length > 0'
+      mat-icon-button
+      (click)="toggleComments(comment)"
+      [color]="readingComments === comment._id ? 'accent' : 'primary'"
+    >
+      <mat-icon>comment</mat-icon>
+    </button>
 
     <span fxFlex></span>
     <div *ngIf="userIsAuthor(comment.authorId)">
