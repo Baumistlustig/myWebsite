@@ -22,4 +22,8 @@ export class CommentService {
   editComment(comment: Post): Observable<any> {
     return this.http.patch(`${environment.domain}comment/${comment._id}`, comment);
   }
+
+  newComment(comment: Post): Observable<any> {
+    return this.http.post(`${environment.domain}comment/`, comment);
+  }
 }
