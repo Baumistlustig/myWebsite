@@ -50,7 +50,7 @@
         {{ post.content }}
       </ng-template>
 
-      <app-new-comment *ngIf='writingComment === post._id'></app-new-comment>
+      <app-new-comment *ngIf='writingComment === post._id' [parentId]='post._id'></app-new-comment>
 
       <div *ngFor="let comment of post.comments; let i = index" class="comment">
         <app-comments
