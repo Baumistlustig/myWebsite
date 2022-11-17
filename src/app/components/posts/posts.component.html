@@ -54,7 +54,7 @@
 
       <div *ngFor="let comment of post.comments; let i = index" class="comment">
         <app-comments
-          *ngIf="readingComments"
+          *ngIf="readingComments === post._id"
           [commentId]="comment"
           [parentPost]="post._id"
         ></app-comments>
