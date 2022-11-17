@@ -84,7 +84,6 @@ export class CommentsComponent implements OnInit {
     if (this.readingComments === comment._id) {
       this.readingComments = false;
       return;
-
     }
     this.readingComments = comment._id;
   }

@@ -90,10 +90,7 @@
     </mat-button-toggle-group>
 
     <mat-grid-list cols="3">
-      <mat-grid-tile
-        *ngFor="let file of searchFiles()"
-        class="file-small"
-      >
+      <mat-grid-tile *ngFor="let file of searchFiles()" class="file-small">
         <button
           mat-button
           (click)="openDialog(file.id)"

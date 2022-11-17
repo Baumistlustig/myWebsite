@@ -163,7 +163,6 @@ export class PostsComponent implements OnInit {
     if (this.readingComments === post._id) {
       this.readingComments = false;
       return;
-
     }
     this.readingComments = post._id;
   }

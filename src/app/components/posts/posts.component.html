@@ -50,7 +50,10 @@
         {{ post.content }}
       </ng-template>
 
-      <app-new-comment *ngIf='writingComment === post._id' [parentId]='post._id'></app-new-comment>
+      <app-new-comment
+        *ngIf="writingComment === post._id"
+        [parentId]="post._id"
+      ></app-new-comment>
 
       <div *ngFor="let comment of post.comments; let i = index" class="comment">
         <app-comments
@@ -95,7 +98,7 @@
 
       <button
         mat-icon-button
-        *ngIf='post.comments && post.comments[0] != null'
+        *ngIf="post.comments && post.comments[0] != null"
         (click)="toggleComments(post)"
         [color]="readingComments === post._id ? 'accent' : 'primary'"
       >
@@ -106,8 +109,12 @@
 
       <button
         mat-icon-button
-        color='accent'
-        (click)='writingComment === post._id ? writingComment = false : writingComment = post._id'
+        color="accent"
+        (click)="
+          writingComment === post._id
+            ? (writingComment = false)
+            : (writingComment = post._id)
+        "
       >
         <mat-icon>add</mat-icon>
       </button>

@@ -5,11 +5,10 @@ import { Observable } from 'rxjs';
 import { Post } from '../../models/posts.models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CommentService {
-
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient) {}
 
   getComment(commentId: string): Observable<any> {
     return this.http.get(`${environment.domain}comment/${commentId}`);
@@ -20,7 +19,10 @@ export class CommentService {
   }
 
   editComment(comment: Post): Observable<any> {
-    return this.http.patch(`${environment.domain}comment/${comment._id}`, comment);
+    return this.http.patch(
+      `${environment.domain}comment/${comment._id}`,
+      comment,
+    );
   }
 
   newComment(comment: any): Observable<any> {
