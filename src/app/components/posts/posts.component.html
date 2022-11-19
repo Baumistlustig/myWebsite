@@ -99,7 +99,7 @@
 
       <button
         mat-icon-button
-        matTooltip='Edit this post'
+        matTooltip='Show comments'
         *ngIf="post.comments && post.comments[0] != null"
         (click)="toggleComments(post)"
         [color]="readingComments === post._id ? 'accent' : 'primary'"
