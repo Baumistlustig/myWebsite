@@ -22,6 +22,7 @@
       <span fxFlex></span>
 
       <button
+        matTooltip="Visit the user's profile"
         mat-button
         (click)="router.navigate(['profiles/' + users[i].username])"
       >
@@ -49,6 +50,19 @@
       <ng-template #content>
         {{ post.content }}
       </ng-template>
+
+      <app-new-comment
+        *ngIf="writingComment === post._id"
+        [parentId]="post._id"
+      ></app-new-comment>
+
+      <div *ngFor="let comment of post.comments; let i = index" class="comment">
+        <app-comments
+          *ngIf="readingComments === post._id"
+          [commentId]="comment"
+          [parentPost]="post._id"
+        ></app-comments>
+      </div>
     </mat-card-content>
 
     <mat-card-actions class="postFooter">
@@ -83,7 +97,33 @@
         </button>
       </ng-template>
 
+      <button
+        mat-icon-button
+        matTooltip="Show comments"
+        *ngIf="post.comments && post.comments[0] != null"
+        (click)="toggleComments(post)"
+        [color]="readingComments === post._id ? 'accent' : 'primary'"
+      >
+        <mat-icon>comment</mat-icon>
+      </button>
+
       <span fxFlex></span>
+
+      <button
+        matTooltip="Create a new comment below this post"
+        mat-icon-button
+        color="accent"
+        (click)="
+          writingComment === post._id
+            ? (writingComment = false)
+            : (writingComment = post._id)
+        "
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+
+      <span fxFlex></span>
+
       <div *ngIf="userIsAuthor(post.authorId)">
         <button
           mat-button
