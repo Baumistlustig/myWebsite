@@ -100,7 +100,7 @@
 
     <button
       *ngIf="comment.comments && comment.comments[0] != null"
-      matTooltip='Show comments'
+      matTooltip="Show comments"
       mat-icon-button
       (click)="toggleComments(comment)"
       [color]="readingComments === comment._id ? 'accent' : 'primary'"

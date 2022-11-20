@@ -99,7 +99,7 @@
 
       <button
         mat-icon-button
-        matTooltip='Show comments'
+        matTooltip="Show comments"
         *ngIf="post.comments && post.comments[0] != null"
         (click)="toggleComments(post)"
         [color]="readingComments === post._id ? 'accent' : 'primary'"
@@ -110,7 +110,7 @@
       <span fxFlex></span>
 
       <button
-        matTooltip='Create a new comment below this post'
+        matTooltip="Create a new comment below this post"
         mat-icon-button
         color="accent"
         (click)="
