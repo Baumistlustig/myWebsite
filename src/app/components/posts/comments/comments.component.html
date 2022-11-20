@@ -67,11 +67,11 @@
   </mat-card-content>
 
   <mat-card-actions class="postFooter">
-    <!--<button
+    <button
       *ngIf="userIsAuthor(comment.authorId); else notLoggedIn1"
       mat-icon-button
       color="{{ returnVoted(comment, true) }}"
-      (click)="voteUp(i)"
+      (click)="voteUp()"
     >
       <mat-icon>thumb_up</mat-icon>
     </button>
@@ -80,11 +80,11 @@
       *ngIf="userIsAuthor(comment.authorId); else notLoggedIn2"
       mat-icon-button
       color="{{ returnVoted(comment, false) }}"
-      (click)="voteDown(i)"
+      (click)="voteDown()"
     >
       <mat-icon>thumb_down</mat-icon>
     </button>
-    {{ comment.dislikedBy.length }}-->
+    {{ comment.dislikedBy.length }}
 
     <ng-template #notLoggedIn1>
       <button mat-icon-button>

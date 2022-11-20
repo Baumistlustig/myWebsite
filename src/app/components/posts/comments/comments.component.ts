@@ -87,4 +87,52 @@ export class CommentsComponent implements OnInit {
     }
     this.readingComments = comment._id;
   }
+
+  //Voting functions
+  voteUp = () => {
+    if (this.comment.dislikedBy.includes(this.comment.authorId)) {
+      //remove element
+      const userIndex = this.comment.dislikedBy.indexOf(this.comment.authorId);
+      this.comment.dislikedBy.splice(userIndex, 1);
+    }
+    if (!this.comment.likedBy.includes(this.comment.authorId)) {
+      // append element
+      this.comment.likedBy.push(this.comment.authorId);
+    } else {
+      //remove element
+      const userIndex = this.comment.likedBy.indexOf(this.comment.authorId);
+      this.comment.likedBy.splice(userIndex, 1);
+    }
+
+    this.commentService.upvote(this.comment._id).subscribe(() => {
+      this.snackBar.open('Voted!', '', {
+        duration: 3000,
+      });
+    });
+  };
+
+  voteDown = () => {
+    if (this.comment.likedBy.includes(this.comment.authorId)) {
+      //remove element
+      const userIndex = this.comment.likedBy.indexOf(this.comment.authorId);
+      this.comment.likedBy.splice(userIndex, 1);
+    }
+    if (!this.comment.dislikedBy.includes(this.comment.authorId)) {
+      // append element
+      this.comment.dislikedBy.push(this.comment.authorId);
+    } else {
+      //remove element
+      const userIndex = this.comment.dislikedBy.indexOf(this.comment.authorId);
+      this.comment.dislikedBy.splice(userIndex, 1);
+    }
+
+    this.commentService.downvote(this.comment._id);
+  };
+
+  returnVoted(post: Post, type: boolean) {
+    if (type) {
+      return post.likedBy.includes(this.comment.authorId) ? 'accent' : 'none';
+    }
+    return post.dislikedBy.includes(this.comment.authorId) ? 'accent' : 'none';
+  }
 }

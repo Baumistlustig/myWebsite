@@ -28,4 +28,12 @@ export class CommentService {
   newComment(comment: any): Observable<any> {
     return this.http.post(`${environment.domain}comment/`, comment);
   }
+
+  upvote(commentId: string) {
+    return this.http.put(`${environment.domain}comment/${commentId}`, { type: true });
+  }
+
+  downvote(commentId: string) {
+    return this.http.put(`${environment.domain}comment/${commentId}`, { type: false });
+  }
 }
