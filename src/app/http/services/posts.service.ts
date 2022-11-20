@@ -19,11 +19,7 @@ export class PostsService {
   }
 
   editPost(post: Post): Observable<any> {
-    return this.http.patch(`${environment.domain}post/`, {
-      title: post.title,
-      content: post.content,
-      postId: post._id,
-    });
+    return this.http.patch(`${environment.domain}post/${post._id}`, post);
   }
 
   deletePost(post_id: string): Observable<any> {
