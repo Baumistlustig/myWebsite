@@ -30,10 +30,14 @@ export class CommentService {
   }
 
   upvote(commentId: string) {
-    return this.http.put(`${environment.domain}comment/${commentId}`, { type: true });
+    return this.http.put(`${environment.domain}comment/${commentId}`, {
+      type: true,
+    });
   }
 
   downvote(commentId: string) {
-    return this.http.put(`${environment.domain}comment/${commentId}`, { type: false });
+    return this.http.put(`${environment.domain}comment/${commentId}`, {
+      type: false,
+    });
   }
 }
