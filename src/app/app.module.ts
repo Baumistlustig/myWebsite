@@ -29,7 +29,6 @@ import { MatListModule } from '@angular/material/list';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthInterceptor } from './http/services/interceptors/auth.interceptor';
-import { PostsComponent } from './components/posts/posts.component';
 import { MatCardModule } from '@angular/material/card';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AccountComponent } from './components/settings/account/account.component';
@@ -40,7 +39,6 @@ import {
   DeleteDialog,
 } from './components/settings/danger-zone/danger-zone.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { NewPostComponent } from './components/posts/new-post/new-post.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -48,9 +46,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ProfilesComponent } from './components/profiles/profiles.component';
 import { MatBadgeModule } from '@angular/material/badge';
-import { CommentsComponent } from './components/posts/comments/comments.component';
 import { MatTreeModule } from '@angular/material/tree';
-import { NewCommentComponent } from './components/posts/comments/new-comment/new-comment.component';
 
 @NgModule({
   declarations: [
@@ -62,17 +58,13 @@ import { NewCommentComponent } from './components/posts/comments/new-comment/new
     ImprintComponent,
     LoginComponent,
     LoginDialog,
-    PostsComponent,
     SettingsComponent,
     AccountComponent,
     AppearanceComponent,
     ProfileComponent,
     DangerZoneComponent,
     DeleteDialog,
-    NewPostComponent,
     ProfilesComponent,
-    CommentsComponent,
-    NewCommentComponent,
   ],
   imports: [
     FormsModule,
