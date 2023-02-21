@@ -41,8 +41,6 @@ import {
 } from './components/settings/danger-zone/danger-zone.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NewPostComponent } from './components/posts/new-post/new-post.component';
-import { FileComponent } from './components/file/file.component';
-import { ImageDialogComponent } from './components/file/dialog/image-dialog.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -72,8 +70,6 @@ import { NewCommentComponent } from './components/posts/comments/new-comment/new
     DangerZoneComponent,
     DeleteDialog,
     NewPostComponent,
-    FileComponent,
-    ImageDialogComponent,
     ProfilesComponent,
     CommentsComponent,
     NewCommentComponent,
