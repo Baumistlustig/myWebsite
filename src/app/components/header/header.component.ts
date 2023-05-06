@@ -9,4 +9,8 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  getDarkmode(): string | null {
+    return localStorage.getItem('theme');
+  }
 }
