@@ -4,13 +4,32 @@
   margin: 0;
 }
 
-section {
-  display: grid;
-  place-items: center;
-  align-content: center;
-  min-height: 50vh;
-  margin-right: 20px;
-  margin-left: 20px;
+.welcome {
+  text-align: center;
+  margin: 23% auto;
+}
+
+.welcome h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.welcome h2 {
+  color: #ff4081;
+}
+
+.welcome h2 a {
+  color: #fdb4cd;
+}
+
+mat-card {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+mat-card-content {
+  margin: 0 auto;
 }
 
 .hidden {
@@ -26,8 +45,9 @@ section {
   transform: translateX(0);
 }
 
-.show ul li a {
+a {
   color: lightblue;
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion) {

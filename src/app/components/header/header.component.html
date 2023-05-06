@@ -9,14 +9,6 @@
         <mat-icon>construction</mat-icon>
         <span>Projects</span>
       </a>
-      <a mat-menu-item routerLink="/posts">
-        <mat-icon>library_books</mat-icon>
-        <span>Posts</span>
-      </a>
-      <a mat-menu-item routerLink="/file">
-        <mat-icon>file_download</mat-icon>
-        <span>File</span>
-      </a>
       <a mat-menu-item routerLink="/imprint">
         <mat-icon>description</mat-icon>
         <span>Imprint</span>
@@ -24,10 +16,18 @@
       <a mat-menu-item href="https://github.com/Baumistlustig/">
         <mat-icon>
           <img
+            *ngIf='getDarkmode() === "darkmode"; else whitemode'
             src="assets/pictures/GitHub-Mark-Light-120px-plus.png"
             class="github-logo"
             alt="github"
           />
+          <ng-template #whitemode>
+            <img
+              src="assets/pictures/GitHub-Mark-120px-plus.png"
+              class="github-logo"
+              alt="github"
+            />
+          </ng-template>
         </mat-icon>
         <span>Github</span>
       </a>
